@@ -12,9 +12,12 @@
   
   
   <body>
+  	   	
+  	   	
+  	   	<!-- Navigation bar -->
   	   		<div class="container">
    				 
-   				 <div class="navbar navbar-default" role="navigation">
+   				 <div class="navbar navbar-inverse" role="navigation">
    					
    					<div class="navbar-header">
 						
