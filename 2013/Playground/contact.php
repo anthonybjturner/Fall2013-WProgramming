@@ -11,8 +11,6 @@
   
   
   <body>
-  	   	
-  	   	
   	   	<!-- Navigation bar -->
   	   		<div class="container">
    				 
@@ -56,23 +54,48 @@
 			<!-- main -->
 			
 				<div class="container">
-					
 					<div class="well">
-						
+
 						<h1>Contact Info</h1>
 						<p>I can be reached through the below form. <a class="btn btn-default "> More info </a></p>
 							
-						
 					</div>
 					
-					
-					
-					
-					
-				</div>
+					<div class="row">
+						<div class="col-lg-8 col-lg-offset-2">
+							
+								<h2> Contact me:</h2>
+								<form class="form-horizontal">
+									<div class="form-group">
+										<label for="input_email1" class="col-md-2 control-label">Your email</label>
+										<div class="col-md-10">
+											
+											<input type="email" class="form-control" id="input_email1" placeholder="Enter your Email address">
+										</div>
+									</div>
+									
+									<div class="form-group">
+										<label for="txt_msg" class="col-md-2 control-label">Message</label>
+										<div class="col-md-10">
+											
+											<textarea class="form-control" id="txt_msg" placeholder="Leave me a message here"></textarea>
+										</div>
+									</div>
+										
+										
+									<div class="form-group">
+										<div class="col-md-offset-2 col-md-10">
+											
+											<input type="submit" class="btn" value="Submit"/>
+										</div>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
 
-
-
+	<script src="http://code.jquery.com/jquery.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
 
 	</body>
 </html>
