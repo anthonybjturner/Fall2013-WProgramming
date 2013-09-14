@@ -55,7 +55,7 @@
 			
 			<!-- main area -->
 			
-				<div class="container">
+			<div class="container">
 					<div class="well">
 
 						<h1>Contact Info</h1>
@@ -64,8 +64,9 @@
 					</div>
 					
 
+    		 	<div class="well">
 					<div class="row">
-						<div class="col-lg-8 col-lg-offset-2">
+						<div class="well col-lg-8 col-lg-offset-2">
 
 								<h2> Contact me:</h2>
 								<form class="form-horizontal">
@@ -98,7 +99,8 @@
 								</form>
 							</div>
 						</div>
-				</div>
+					</div>
+			</div>
 
 	<script src="http://code.jquery.com/jquery.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>

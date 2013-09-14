@@ -4,6 +4,7 @@
     <title>Bootstrap 101 Template - Links</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
     <style type="text/css">
     	body { padding-top: 70px; }
     </style>
@@ -11,6 +12,8 @@
   
   
   <body>
+  	
+  	
   	   	<!-- Navigation bar -->
   	   		
   	   		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
@@ -29,7 +32,7 @@
 		
 		
 					<div class="collapse navbar-collapse nav-c">
-			            <ul class="nav navbar-nav">
+			            <ul class="nav navbar-nav ">
 			            	<!-- Simple static links -->
 			              <li class="home"><a href="index.php">Home</a></li>
 			              <li class="contact "><a href="contact.php">Contact</a></li>
@@ -116,6 +119,11 @@
 					
 				</div><!-- End container -->
 					
+					<div id="footer">
+      <div class="container">
+        <p class="text-muted credit">Example courtesy <a href="http://martinbean.co.uk">Martin Bean</a> and <a href="http://ryanfait.com/sticky-footer/">Ryan Fait</a>.</p>
+      </div>
+    </div>
 					
 
 	<script src="http://code.jquery.com/jquery.js"></script>
