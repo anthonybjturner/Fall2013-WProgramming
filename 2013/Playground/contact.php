@@ -11,6 +11,8 @@
   
   
   <body>
+  	<? include('_nav.php'); ?>
+  	
   	   	<!-- Navigation bar -->
   	   		
   	   		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
@@ -104,6 +106,20 @@
 
 	<script src="http://code.jquery.com/jquery.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+	<script src="Scripts/main.js">
+		
+		
+	</script>
+	
+	<!-- update/highlight based on javascript -->
+	<script type="text/javascript">
+    	$(function (){
+		  
+		  $(".nav .contact").addClass("active").fadeOut().fadeIn()
+		});
+    		
+    </script>
+
 
 	</body>
 </html>

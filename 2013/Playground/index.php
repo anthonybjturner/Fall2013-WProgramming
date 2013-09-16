@@ -21,7 +21,7 @@
   
   <body>
   	   	
-  	   	
+  	   	<? include('_nav.php'); ?>
   	   	<!-- Navigation bar ~ using a fixed navbar that keeps showing when scrolling down and up-->
   	   		<div class="navbar navbar-inverse navbar-fixed-top" role="navigation" >
 
@@ -165,6 +165,17 @@
   	
     <script src="http://code.jquery.com/jquery.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    
+    	<!-- update based on javascript -->
+    <script type="text/javascript">
+    	$(function (){
+		  
+		  $(".nav .home").addClass("active")
+		});
+    	
+    	
+    	
+    </script>
  </body>
  
  

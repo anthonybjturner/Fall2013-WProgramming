@@ -1,3 +1,5 @@
+
+<!-- associative arrays -->
 <?
 	$pages = array(
 		'home'=> array(
@@ -5,12 +7,29 @@
 			'section' => 'home',
 			'title' => 'Home'
 		),
-		'links'=>'links.php',
-		'contact'=>'contact.php');
-	
+		
+		'links'=> array('url' =>'links.php',
+			'section' => 'links',
+			'title' => 'home'
+			),
+			
+		'contact'=> array(
+			'url' =>'contact.php',
+			'section' => 'contact',
+			'title' => 'Contact Me'
+			));
+			
+		
 	
 	$name = $pages[$location];
 	$msg = "Hello $name[title]";
+	
+	//Adds array to the end of the nav links
+	$pages[] = array('contact.php',
+			'section' => 'contact',
+			'title' => 'Contact Me'
+			);
+	
 
 ?>
 	
@@ -29,9 +48,29 @@
 						
 					<div class="collapse navbar-collapse nav-c">
 						<ul class="nav navbar-nav">
+							
+							
 							<li class="home <? if($location == 'home') echo "active"; ?>"><a href="./">Home</a></li>
 							<li class="contact <? if($location == 'contact') echo "active"; ?>"><a href="contact.php">Contact</a></li>
 							<li class="links <? if($location == 'links') echo "active"; ?>"><a href="links.php">Links</a></li>
+							
+							
+							<!-- Get each key and value pair in the $pages array , dynamically generates a list of links-->
+							<? foreach($pages as $name => $data): ?>
+									
+								<li class="<?=$data['section']?> <? if($location == $data['section']) echo "active"; ?>">
+									<a href="<?=$data['title']?></a>
+								</li>
+
+							<? endforeach; ?>
+							
+							
+							
+							
+							
+							
+							
+							
 							<li class="dropdown">
 							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
 							<ul class="dropdown-menu">
@@ -47,3 +86,8 @@
 					</div>
 					</div>
 			</div>
+			
+<pre class="container">
+	
+	<? echo json_encode($pages); ?>
+</pre>
