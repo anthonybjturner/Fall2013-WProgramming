@@ -1,3 +1,11 @@
+<?
+	$location = 'home';
+
+
+
+
+?>
+
 
 <!DOCTYPE html>
 <html>
