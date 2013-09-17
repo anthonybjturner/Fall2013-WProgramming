@@ -1,7 +1,7 @@
 $(function(){
 	
 	
-	$(".container").css( {"margin-left":-1000}).animate("margin-left":0), 1000)
+	$(".container").css( { "margin-left": -800 }).animate({"margin-left": 300}, 500);
 	
 	
 });
