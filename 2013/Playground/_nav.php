@@ -17,7 +17,15 @@
 			'url' =>'contact.php',
 			'section' => 'contact',
 			'title' => 'Contact'
+		),
+		
+		'about'=> array(
+			'url' =>'about.php',
+			'section' => 'about',
+			'title' => 'About Me'
 		)
+		
+		
 			
 	);
 			
