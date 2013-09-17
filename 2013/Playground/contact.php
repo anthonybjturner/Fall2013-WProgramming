@@ -81,7 +81,7 @@
 	<script type="text/javascript">
     	$(function (){
 		  
-		  $(".nav .contact").addClass("active").fadeOut().fadeIn()
+		  $(".nav .contact").addClass("active").fadeOut().fadeIn().fadeOut().fadeIn();
 		});
     		
     </script>

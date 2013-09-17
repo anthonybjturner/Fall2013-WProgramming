@@ -45,7 +45,7 @@
 	<script type="text/javascript">
     	$(function (){
 		  
-		  $(".nav .about").addClass("active").fadeOut().fadeIn()
+		  $(".nav .about").addClass("active").fadeOut().fadeIn().fadeOut().fadeIn();
 		});
     		
     </script>

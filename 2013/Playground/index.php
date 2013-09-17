@@ -26,7 +26,7 @@
 		 		 	
 			  	
 	  				<div class="jumbotron">
-			    		<h1>Suny New Paltz <br> Web Programming</h1>
+			    		<h1>Suny New Paltz University <br> Web Programming</h1>
 			    
 				    	<p>Welcome to the Bootstrap 101 basic template project</p>
 	  					<a class="btn btn-lg btn-success">Learn More</a>
@@ -67,7 +67,7 @@
     <!-- Javascript for setting the current shown page's nav link as active, and adds effects-->
     <script type="text/javascript">
     	$(function(){
-    		$(".nav .home").addClass("active").fadeOut().fadeIn();
+    		$(".nav .home").addClass("active").fadeOut().fadeIn().fadeOut().fadeIn();
     	});
     </script>
     	

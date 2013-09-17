@@ -93,7 +93,7 @@
     <script type="text/javascript">
     
     	$(function(){
-    		$(".nav .links").addClass("active").fadeOut().fadeIn();
+    		$(".nav .links").addClass("active").fadeOut().fadeIn().fadeOut().fadeIn();
     	});
     </script>
 
