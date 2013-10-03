@@ -1,4 +1,18 @@
+<? include 'inc/_global.php'; ?>
+
+
+<? 
+
+
+	$conn = GetConnection();
+	$result = $conn->query('SELECT * FROM Keywords');
+	$rs = $result->fetch_assoc();
+	
+
+?>
+
 <!DOCTYPE html>
+
 <html>
   <head>
     <title>Final page</title>
@@ -15,6 +29,14 @@
   <body>
     <h1>This page is the index.php for the Final folder</h1>
   
+    <? 
+    
+    	$msg = 'Hello ' ;
+		$name = ' Anthony' ;
+	
+		include 'something.php';
+    
+    ?>
     
     <div>
     	<style>
