@@ -6,13 +6,10 @@
 
 	$conn = GetConnection();
 	
-	$result = $conn-> query('SELECT * FROM 2013Fall_Users');
+	$result = $conn->query('SELECT * FROM 2013Fall_Users');
     
     	 /* fetch associative array */
-   		 while ($rs = $result->fetch_assoc()) {
-       		 printf ("%s (%s)\n", $rs["FirstName"], $rs["LastName"]);
-			
-   		 }
+   		 $rs = $result->fetch_assoc();
 ?>
 
 </div>
@@ -32,15 +29,17 @@
     
     <?
     
-    
-		
-		
+
 		$msg = 'Hello ';
 		$name = 'Anthony';
 		include 'something.php';
 		
 		
 	?>
+	<pre>
+		<? print_r($rs); ?>
+		
+	</pre>
 
 	<span class="label label-success"><?= $msg . $name ?></span>
 	
