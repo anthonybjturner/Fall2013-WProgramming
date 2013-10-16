@@ -37,32 +37,29 @@
 			<div class="collapse navbar-collapse nav-c">
 				
 				<ul class="nav navbar-nav">
-				
-					<li class="Keywords">
-						<a href="../Keywords/"> Keywords</a>
-					</li> 
 					
-					<li class="Users">
-						<a href="../Users/"> Users</a>
-					</li>
+					<li class="Users"><a href="../Users/"> Users</a></li>
+
 				
 					<li class="dropdown">
 		      			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
 		      			  <ul class="dropdown-menu">
-		          			<li><a href="#">Action</a></li>
-		          			<li><a href="#">Another action</a></li>
-		          			<li><a href="#">Something else here</a></li>
-		          			<li><a href="#">Separated link</a></li>
-		          			<li><a href="#">One more separated link</a></li>
+		          			<li class="Addresses"><a href="../Products/"> Products</a></li>
+		          			<li class="Keywords"><a href="../Keywords/"> Keywords</a></li> 
+							<li class="Addresses"><a href="../Addresses/"> Addresses</a></li>
+							
 		        		</ul>
 		      		</li>
 				</ul>
 			</div>
 		</div>
-	</div>
-  	   
+	</div> <!-- End navigation area-->
+
+	
+  	 <!-- The main view area-->
 	<? include $view; ?>
-  	
+  	<!-- End the main view area-->
+
   	<script src="http://code.jquery.com/jquery.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="Scripts/main.js"></script>	
@@ -73,7 +70,3 @@
     
  </body>
 </html>
-
-
-
-

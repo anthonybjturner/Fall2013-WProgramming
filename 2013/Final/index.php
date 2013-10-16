@@ -11,10 +11,9 @@
   </head>
   
   <body>
-    <h1>This page is the index.php for the Final folder</h1>
+    <h1>Final folder</h1>
   
-    
-    <? include('_nav.php'); ?> 
+    <? include('_nav.php'); ?>
   	   
 			<!-- main area -->
 		 <div class="container">
@@ -22,13 +21,18 @@
 			  	
 	  		<div class="jumbotron">
 			    
+	  					<img src="../resources/images/anime_girl.jpg" alt="madobe anime computer science"></img>
 				    	
   			</div><!-- End container -->
   	
-
+  		
+			<? include('something.php'); ?>
+			
 		</div>
 
-
+	
+	
+	
   	 <script src="http://code.jquery.com/jquery.js"></script>
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script src="Scripts/main.js"></script>

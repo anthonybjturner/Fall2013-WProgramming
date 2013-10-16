@@ -82,8 +82,3 @@
 	</div>
 	<!-- End navbar-->
 	
-<pre class="container">
-
-	<? echo json_encode($pages); ?>
-	
-</pre>

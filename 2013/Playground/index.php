@@ -26,9 +26,14 @@
 		 		 	
 			  	
 	  				<div class="jumbotron">
-			    		<h1>Suny New Paltz University <br> Web Programming</h1>
-			    
+	  					
+	  					<h1>Playground folder</h1>
+						    
 				    	<p>Welcome to the Bootstrap 101 basic template project</p>
+	  					
+			   			 <img src="../resources/images/madobe_small.jpg" alt="madobe anime computer science"></img>
+
+    					
 				    	
 				    	
 				    	<h2>What is a Computer Scientist?</h2>

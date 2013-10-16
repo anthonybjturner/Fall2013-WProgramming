@@ -24,6 +24,67 @@
 			'section' => 'about',
 			'title' => 'About Me'
 		)
+	);
+			
+?>
+
+<?
+	$model_pages = array(
+		
+		'Addresses'=> array(
+			'url' =>'Views/Addresses',
+			'section' => 'AddressesModel',
+			'title' => 'Addresses'
+		),
+		
+		'Keywords'=> array(
+			'url' =>'Views/Keywords',
+			'section' => 'KeywordsModel',
+			'title' => 'Keywords'
+		),
+		
+		'Products'=> array(
+			'url' =>'Views/Products',
+			'section' => 'ProductsModel',
+			'title' => 'Products'
+		),
+		
+		'Users'=> array(
+			'url' =>'Views/Users',
+			'section' => 'UsersModel',
+			'title' => 'Users'
+		),
+		
+		'ContactMethods'=> array(
+			'url' =>'Views/ContactMethods',
+			'section' => 'ContactMethodsModel',
+			'title' => 'Contact Methods'
+		),
+		
+		'OrdersItems'=> array(
+			'url' =>'Views/OrdersItems',
+			'section' => 'OrdersItemsModel',
+			'title' => 'Orders Items'
+		),
+		
+		'Orders'=> array(
+			'url' =>'Views/Orders',
+			'section' => 'OrdersModel',
+			'title' => 'Orders'
+		),
+		
+		'PhoneNumbers'=> array(
+			'url' =>'Views/PhoneNumbers',
+			'section' => 'PhoneNumbersModel',
+			'title' => 'PhoneNumbers'
+		),
+		
+		'Suppliers'=> array(
+			'url' =>'Views/Suppliers',
+			'section' => 'SuppliersModel',
+			'title' => 'Suppliers'
+		)		
+
 
 	);
 			
@@ -61,14 +122,22 @@
 						
 					<? endforeach; ?>
 					
+					
 					<li class="dropdown">
-		      			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+		      			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Model Views <b class="caret"></b></a>
 		      			  <ul class="dropdown-menu">
-		          			<li><a href="#">Action</a></li>
-		          			<li><a href="#">Another action</a></li>
-		          			<li><a href="#">Something else here</a></li>
-		          			<li><a href="#">Separated link</a></li>
-		          			<li><a href="#">One more separated link</a></li>
+		      			  	
+								<? foreach($model_pages as $name => $data): ?>
+									
+									<li class="<?=$data['section']?>">
+										
+										<a href="<?=$data['url']?>">
+											<?=$data['title'] ?> 
+										</a>
+									</li>
+			
+							<? endforeach; ?>
+
 		        		</ul>
 		      		</li>
 				</ul>
