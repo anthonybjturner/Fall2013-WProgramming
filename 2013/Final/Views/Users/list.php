@@ -14,7 +14,8 @@
 			<th>Last Name</th>
 			<th>Type</th>
 			<th>Facebook</th>
-			
+			<th>Details</th>
+
 		</tr>
 		</thead>
 		<tbody>
@@ -26,6 +27,10 @@
 				<td><?=$rs['UserType']?></td>				
 				<td><?=$rs['fbid']?></td>				
 
+
+				<td><a class ="btn glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>"></a></td>
+				<td><a class ="btn glyphicon glyphicon-pencil" href="?action=details&id=<?=$rs['id']?>"></a></td>
+				<td><a class ="btn glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>"></a></td>
 
 			</tr>
 		

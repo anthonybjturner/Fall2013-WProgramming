@@ -5,22 +5,15 @@
  */
 class Users {
 	
-	static public function Get(){
+	static public function Get($id=null){
 			
-		
-		$ret = array();
-		$conn = GetConnection();
-		$result = $conn->query('SELECT * FROM 2013Fall_Users');
-		
-		while( $rs = $result->fetch_assoc()){
+		if(isset($id)){
 			
-			$ret[] = $rs;//Adding on to the end of collection
+			return fetch_one("SELECT * FROM 2013Fall_Users WHERE id=$id");//Double quotes takes the actual value of $id
+		}else{
+			return fetch_all('SELECT * FROM 2013Fall_Users');
 		}
-	
-	
-		$conn->close();
-		return $ret;	
-		
+
 	}
 	
 }
