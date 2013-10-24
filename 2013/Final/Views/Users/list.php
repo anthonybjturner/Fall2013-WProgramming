@@ -4,6 +4,9 @@
 	
 	<h2>Users</h2>
 	
+	<a href="?action=new">Add Contact</a>
+	
+	
 	<table class="table table-hover table-bordered table-striped">
 		
 		<thead>
@@ -13,9 +16,7 @@
 			<th>First Name</th>
 			<th>Last Name</th>
 			<th>Type</th>
-			<th>Facebook</th>
-			<th>Details</th>
-
+			<th></th>
 		</tr>
 		</thead>
 		<tbody>
@@ -25,12 +26,13 @@
 				<td><?=$rs['FirstName'] ?></td>
 				<td><?=$rs['LastName']?></td>
 				<td><?=$rs['UserType']?></td>				
-				<td><?=$rs['fbid']?></td>				
 
 
-				<td><a class ="btn glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>"></a></td>
-				<td><a class ="btn glyphicon glyphicon-pencil" href="?action=details&id=<?=$rs['id']?>"></a></td>
-				<td><a class ="btn glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>"></a></td>
+				<td>
+					<a class ="btn glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>"></a>
+					<a class ="btn glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>"></a>
+					<a class ="btn glyphicon glyphicon-trash" href="?action=delete&id=<?=$rs['id']?>"></a>
+				</td>
 
 			</tr>
 		

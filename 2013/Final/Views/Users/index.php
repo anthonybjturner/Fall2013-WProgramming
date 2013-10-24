@@ -2,7 +2,9 @@
 
 include_once "../../inc/_global.php";
 
-@$action = $_REQUEST['action'];
+@$action = $_REQUEST['action'];//Merges together the GET and POST
+//@$action = $_GET['action']; 
+
 
 switch ($action) {
 	
@@ -14,19 +16,32 @@ switch ($action) {
 		
 	case 'new':
 		
-		$view  = 'new.php';
+		$view  = 'edit.php';
 		break;
 		
 	case 'save':
+		$errors = Users::Validate($_REQUEST);//Check validation if it is good
+		if(!$errors){
+			
+			$errors = Users::Save($_REQUEST);//Save
+		}
 		
-		$model = Users::Get($_REQUEST['id']);
-		$view  = 'details.php';
+		//If there are still no errrors then we redirect
+		if( !$errors){
+			
+			header("Location: ?");
+			die();//Kills preproccesor processing
+			
+		}
+		
+		$model = $_REQUEST;
+		$view = 'edit.php';
 		break;
 
 	case 'edit':
 		
 		$model = Users::Get($_REQUEST['id']);
-		$view  = 'details.php';
+		$view  = 'edit.php';
 		break;
 		
 	case 'delete':
