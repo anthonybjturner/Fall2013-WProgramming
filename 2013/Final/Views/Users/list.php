@@ -20,14 +20,17 @@
 		</tr>
 		</thead>
 		<tbody>
-		<? foreach ($model as $rs): ?>
+		<? foreach ($model as $rs): ?><!-- Get all the columns and fields from the model-->
 
-			<tr> 
+
+			<tr> <!-- Create columns for each field/row-->
+
 				<td><?=$rs['FirstName'] ?></td>
 				<td><?=$rs['LastName']?></td>
 				<td><?=$rs['UserType']?></td>				
 
 
+				<!-- Create links and buttons for each field/row-->
 				<td>
 					<a class ="btn glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>"></a>
 					<a class ="btn glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>"></a>

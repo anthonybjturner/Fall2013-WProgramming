@@ -20,6 +20,7 @@ switch ($action) {
 		break;
 		
 	case 'save':
+		
 		$errors = Users::Validate($_REQUEST);//Check validation if it is good
 		if(!$errors){
 			
@@ -52,15 +53,13 @@ switch ($action) {
 		
 	
 	
-	default:
+	default: //This is the default view that is created when no request has been selected
 		
-		$model = Users::Get();
+		$model = Users::Get();//Gets all fields by default
 		$view  = 'list.php';
 		break;
 }
 
-		 
-	
 	include '../Shared/_Layout.php';//Gives list of keyowrds to list.php
 	
 	
