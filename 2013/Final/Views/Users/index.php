@@ -3,6 +3,7 @@
 include_once "../../inc/_global.php";
 
 @$action = $_REQUEST['action'];//Merges together the GET and POST
+@$format = $_REQUEST['format'];
 //@$action = $_GET['action']; 
 
 
@@ -15,7 +16,7 @@ switch ($action) {
 		break;
 		
 	case 'new':
-		
+		$model = Users::Blank();
 		$view  = 'edit.php';
 		break;
 		
@@ -50,8 +51,6 @@ switch ($action) {
 		$model = Users::Get($_REQUEST['id']);
 		$view  = 'details.php';
 		break;
-		
-	
 	
 	default: //This is the default view that is created when no request has been selected
 		
@@ -60,6 +59,18 @@ switch ($action) {
 		break;
 }
 
-	include '../Shared/_Layout.php';//Gives list of keyowrds to list.php
+	switch ($format) {
+        case 'min':
+                include $view;
+                break;
+        case 'dialog':
+                include '../Shared/_Dialog.php';
+                break;
+        
+        default:
+                include '../Shared/_Layout.php';
+                
+                break;
+}
 	
 	

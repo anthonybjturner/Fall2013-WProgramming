@@ -36,8 +36,8 @@ class Users {
 	}
 	
 	static public function Blank(){
-		
-		
+				
+		return array('FirstName' => null , 'LastName' => null, 'Password' => null, 'UserType' => null);
 		
 	}
 	
@@ -47,12 +47,8 @@ class Users {
 		if( !$row['FirstName'])$errors['FirstName'] = 'is required'; 		
 		if( !$row['LastName'])$errors['LastName'] = 'is required';
 		if( !is_numeric($row['UserType']))$errors['UserType'] = 'must be a number';
-		if( !$row['UserType'])$errors['UserType'] = 'is required';
+		if( !$row['UserType'])$errors['UserType'] = 'id required';
 				
-		if(count($errors) == 0){
-			return false;
-		}else{
-			return $errors;
-		}
+		return count($errors) ? $errors : null;
 	}
 }
