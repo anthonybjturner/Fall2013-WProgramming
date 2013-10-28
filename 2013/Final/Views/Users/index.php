@@ -16,7 +16,7 @@ switch ($action) {
 		break;
 		
 	case 'new':
-		$model = Users::Blank();
+		$model = Users::Blank();//Null Associative array
 		$view  = 'edit.php';
 		break;
 		
@@ -24,7 +24,7 @@ switch ($action) {
 		
 		$errors = Users::Validate($_REQUEST);//Check validation if it is good
 		if(!$errors){
-			
+			//Check for errors when saving
 			$errors = Users::Save($_REQUEST);//Save
 		}
 		
@@ -33,9 +33,9 @@ switch ($action) {
 			
 			header("Location: ?");
 			die();//Kills preproccesor processing
-			
+			//End after die	
 		}
-		
+		//Only get here if there are errors
 		$model = $_REQUEST;
 		$view = 'edit.php';
 		break;

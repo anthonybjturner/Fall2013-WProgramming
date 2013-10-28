@@ -32,7 +32,7 @@
 
 				<!-- Create links and buttons for each field/row-->
 				<td>
-					<a class ="btn glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>"></a>
+					<a class ="btn glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>" data-toggle="modal" data-target="#myModal" ></a>
 					<a class ="btn glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>"></a>
 					<a class ="btn glyphicon glyphicon-trash" href="?action=delete&id=<?=$rs['id']?>"></a>
 				</td>
@@ -43,7 +43,11 @@
 	
 		</tbody>
 	</table>
+</div>
 
+<div id="myModal">
+	<!-- View needs to be in a new layout with the javascript data -->
+	
 </div>
 
 <? function Scripts(){ ?> 
