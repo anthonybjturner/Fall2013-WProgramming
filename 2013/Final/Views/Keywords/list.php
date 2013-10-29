@@ -3,6 +3,7 @@
 <div class="container">
 	
 	<h2>Keywords</h2>
+	<a href="?action=new">Add Keyword</a>
 	
 	<table class="table table-hover table-bordered table-striped table-condensed">
 		
@@ -12,7 +13,7 @@
 			<!-- Always match up th with td -->
 			<th>ID</th>
 			<th>User Type</th>
-
+			<th></th>
 		</tr>
 		</thead>
 		<tbody>
@@ -21,6 +22,14 @@
 			<tr> 
 				<td ><?=$rs['id']?></td>
 				<td><?=$rs['Names']?></td>
+
+
+				<!-- Create links and buttons for each field/row-->
+				<td>
+					<a class ="glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>" data-toggle="modal" data-target="#myModal" ></a>
+					<a class ="glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>"></a>
+					<a class ="glyphicon glyphicon-trash" href="?action=delete&id=<?=$rs['id']?>"></a>
+				</td>
 
 			</tr>
 		

@@ -2,7 +2,8 @@
 
 <div class="container">
 	
-	<h2>Addresses</h2>
+	<h2>Addresses</h2>	
+	<a href="?action=new">Add Address</a>
 	
 	<table class="table table-hover table-bordered table-striped table-condensed">
 		
@@ -10,12 +11,12 @@
 		<tr>
 			
 			<!-- Always match up th with td -->
-			<th>ID</th>
 			<th>City</th>
 			<th>State</th>
 			<th>Zipcode</th>
 			<th>User ID</th>
 			<th>Address Type</th>
+			<th></th>
 
 		</tr>
 		</thead>
@@ -23,12 +24,20 @@
 		<? foreach ($model as $rs): ?>
 
 			<tr> 
-				<td><?=$rs['id']?></td>
 				<td><?=$rs['City']?></td>
 				<td><?=$rs['State']?></td>
 				<td><?=$rs['Zipcode']?></td>
-				<td><?=$rs['2013Fall_Users_id']?></td>
+				<td><?=$rs['Users_id']?></td>
 				<td><?=$rs['AddressType']?></td>
+				
+				
+				<!-- Create links and buttons for each field/row-->
+				<td>
+					<a class ="glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>" data-toggle="modal" data-target="#myModal" ></a>
+					<a class ="glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>"></a>
+					<a class ="glyphicon glyphicon-trash" href="?action=delete&id=<?=$rs['id']?>"></a>
+				</td>
+				
 
 			</tr>
 		
@@ -36,6 +45,11 @@
 	
 		</tbody>
 	</table>
+
+<div id="myModal">
+	<!-- View needs to be in a new layout with the javascript data -->
+	
+</div>
 
 </div>
 
