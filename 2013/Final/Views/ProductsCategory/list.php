@@ -2,32 +2,26 @@
 
 <div class="container">
 	
-	<h2>Users</h2>
+	<h2>Products Category</h2>
+	<a href="?action=new">Add Product Category</a>
 	
-	<a class="glyphicon glyphicon-plus " href="?action=new">Add Contact</a>
-	
-	<table class="table table-hover table-bordered table-striped">
+	<table class="table table-hover table-bordered table-striped table-condensed">
 		
 		<thead>
 		<tr>
 			
 			<!-- Always match up th with td -->
-			<th>First Name</th>
-			<th>Last Name</th>
-			<th>Type</th>
+			<th>Name</th>
 			<th></th>
+		
 		</tr>
 		</thead>
 		<tbody>
-		<? foreach ($model as $rs):?><!-- Get all the columns and fields from the model-->
+		<? foreach ($model as $rs): ?>
 
+			<tr> 
+				<td ><?=$rs['Name']?></td>
 
-			<tr> <!-- Create columns for each field/row-->
-
-				<td><?=$rs['FirstName']?></td>
-				<td><?=$rs['LastName']?></td>
-				<td><?=$rs['UserType']?></td>
-				<!-- Create links and buttons for each field/row-->
 				<td>
 					<a class ="glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>" data-toggle="modal" data-target="#myModal"></a>
 					<a class ="glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>"></a>
@@ -40,11 +34,7 @@
 	
 		</tbody>
 	</table>
-</div>
 
-<div id="myModal">
-	<!-- View needs to be in a new layout with the javascript data -->
-	
 </div>
 
 <? function Scripts(){ ?> 

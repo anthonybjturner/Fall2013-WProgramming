@@ -57,7 +57,7 @@ class Users {
 	
 	static public function Validate($row){
 
-		$errors = array();//Only one error per field
+		$errors = array();//Only one error per field/element
 		if( !$row['FirstName'])$errors['FirstName'] = 'is required'; 		
 		if( !$row['LastName'])$errors['LastName'] = 'is required';
 		if( !is_numeric($row['UserType']))$errors['UserType'] = 'must be a number';

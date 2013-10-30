@@ -49,6 +49,12 @@
 			'title' => 'Products'
 		),
 		
+		'ProductsCategory'=> array(
+			'url' =>'Views/ProductsCategory',
+			'section' => 'ProductsCategoryModel',
+			'title' => 'Products Category'
+		),
+		
 		'Users'=> array(
 			'url' =>'Views/Users',
 			'section' => 'UsersModel',
