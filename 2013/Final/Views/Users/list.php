@@ -29,9 +29,9 @@
 				<td><?=$rs['UserType']?></td>
 				<!-- Create links and buttons for each field/row-->
 				<td>
-					<a class ="glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>" data-toggle="modal" data-target="#myModal"></a>
-					<a class ="glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>"></a>
-					<a class ="glyphicon glyphicon-trash" href="?action=delete&id=<?=$rs['id']?>"></a>
+					<a class ="glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?> &format=dialog" data-toggle="modal" data-target="#myModal"></a>
+					<a class ="glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>>&format=dialog " data-toggle="modal" data-target="#myModal"></a>
+					<a class ="glyphicon glyphicon-trash" href="?action=delete&id=<?=$rs['id']?>>&format=dialog " data-toggle="modal" data-target="#myModal"></a>
 				</td>
 
 			</tr>
@@ -42,7 +42,8 @@
 	</table>
 </div>
 
-<div id="myModal">
+<div id="myModal" class="modal fade">
+	
 	<!-- View needs to be in a new layout with the javascript data -->
 	
 </div>

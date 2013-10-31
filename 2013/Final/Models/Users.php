@@ -49,6 +49,23 @@ class Users {
         }	
 	}
 	
+	static public function Delete($id){
+			
+		$conn = GetConnection();
+		$sql = " DELETE From 2013Fall_Users WHERE id=$id ";
+					
+        $conn->query($sql);//Insert the values from the associative array $row into the current connections database with the $sql variable
+        $error = $conn->error;    //Returns the last error message (if there's one) for the most recent MySQLi function call that can succeed or fail.
+                   
+        $conn->close();
+        
+        if($error){
+                return array('db_error' => $error);//Create and return an array pointing to the error msg
+        }else {
+                return false;
+        }	
+	}
+	
 	static public function Blank(){
 				
 		return array('id'=> null, 'FirstName' => null , 'LastName' => null, 'Password' => null, 'UserType' => null);
