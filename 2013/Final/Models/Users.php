@@ -52,7 +52,7 @@ class Users {
 	static public function Delete($id){
 			
 		$conn = GetConnection();
-		$sql = " DELETE From 2013Fall_Users WHERE id=$id ";
+		$sql = " Delete From 2013Fall_Users Where id=$id ";
 					
         $conn->query($sql);//Insert the values from the associative array $row into the current connections database with the $sql variable
         $error = $conn->error;    //Returns the last error message (if there's one) for the most recent MySQLi function call that can succeed or fail.

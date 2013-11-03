@@ -4,6 +4,7 @@
 	include_once "../../inc/_global.php";
 
 	@$action = $_REQUEST['action'];//Merges together the GET and POST
+	@$format = $_REQUEST['format'];//Merges together the GET and POST
 	
 	switch ($action) {
 		
@@ -45,9 +46,27 @@
 			break;	
 			
 		case 'delete':
+			
+			if(isset($_POST['id'])){
+				
+				$errors = ProductsCategory::Delete($_REQUEST['id']);
+				
+				if($errors){
+					
+					$model = ProductsCategory::Get($_REQUEST['id']);
+					$view = 'errors.php';
+					break;
+				}
+				
+				header("Location: ?");
+				die();
+				
+			}
+			
+			
 			$model = ProductsCategory::Get($_REQUEST['id']);
 			$view = 'delete.php';
-			
+			$title = "Delete: $model[Name]";
 			break;
 			
 		case 'confirm_delete':
@@ -62,5 +81,13 @@
 	
 	}
 
-		include '../Shared/_Layout.php';
+		switch ($format) {
+			case 'dialog':
+				include '../Shared/_DialogLayout.php';
+				break;
+			
+			default:
+				include '../Shared/_Layout.php';
+				break;
+		}
 	

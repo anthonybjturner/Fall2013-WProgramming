@@ -3,7 +3,7 @@
 <div class="container">
 	
 	<h2>Addresses</h2>	
-	<a href="?action=new">Add Address</a>
+	<a href="?action=new&format=dialog" data-toggle="modal" data-target="#myModal">Add Address</a>
 	
 	<table class="table table-hover table-bordered table-striped table-condensed">
 		
@@ -31,11 +31,10 @@
 				<td><?=$rs['AddressType']?></td>
 				
 				
-				<!-- Create links and buttons for each field/row-->
 				<td>
-					<a class ="glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>" data-toggle="modal" data-target="#myModal" ></a>
-					<a class ="glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>"></a>
-					<a class ="glyphicon glyphicon-trash" href="?action=delete&id=<?=$rs['id']?>"></a>
+					<a class ="glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
+					<a class ="glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
+					<a class ="glyphicon glyphicon-trash" href="?action=delete&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
 				</td>
 				
 
@@ -45,13 +44,14 @@
 	
 		</tbody>
 	</table>
+</div>
 
-<div id="myModal">
+<div class="modal fade" id="myModal">
 	<!-- View needs to be in a new layout with the javascript data -->
 	
 </div>
 
-</div>
+
 
 <? function Scripts(){ ?> 
 	

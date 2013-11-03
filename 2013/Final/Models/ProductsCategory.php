@@ -46,29 +46,22 @@ class ProductsCategory {
         }	
 	}
 
-	static public function Delete($row){
+	static public function Delete($id){
 		
 		$conn = GetConnection();
-		$answer = $row['confirm'];
+		$sql = " DELETE FROM 2013Fall_ProductsCategory WHERE id=$id";
 
-		if(isset($answer) && $answer == 'Yes' ){//Update field if the returned value for the id is not null
-			
-			$sql = " Delete From 2013Fall_ProductsCategory "
-			.	   "	WHERE id=$row[id]	";
-			
-			$conn->query($sql);//Insert the values from the associative array $row into the current connections database with the $sql variable
-	        $error = $conn->error;    //Returns the last error message (if there's one) for the most recent MySQLi function call that can succeed or fail.
-	                   
-	        $conn->close();
+		$conn->query($sql);//Insert the values from the associative array $row into the current connections database with the $sql variable
+	    $error = $conn->error;    //Returns the last error message (if there's one) for the most recent MySQLi function call that can succeed or fail.
+	    $conn->close();
         
-	        if($error){
-	                return array('db_error' => $error);//Create and return an array pointing to the error msg
-	        }else {
-	                return false;
-	        }	
-		}
-		
+        if($error)
+	         return array('db_error' => $error);//Create and return an array pointing to the error msg
+	        else 
+	          return false;
+	     
 	}
+	
 	
 	static public function Blank(){
 				

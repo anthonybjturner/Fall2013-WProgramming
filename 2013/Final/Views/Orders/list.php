@@ -3,7 +3,8 @@
 <div class="container">
 	
 	<h2>Orders</h2>
-	
+	<a href="?action=new&format=dialog" data-toggle="modal" data-target="#myModal">Add Order</a>
+
 	<table class="table table-hover table-bordered table-striped table-condensed">
 		
 		<thead>
@@ -11,7 +12,6 @@
 			
 			<!-- Always match up th with td -->
 			<th>Order Item ID</th>
-			<th>Users ID</th>
 			<th>Address ID</th>
 			
 		</tr>
@@ -21,8 +21,13 @@
 
 			<tr> 
 				<td><?=$rs['OrdersItems_id']?></td>
-				<td><?=$rs['2013Fall_Users_id']?></td>
-				<td><?=$rs['2013Fall_Addresses_id']?></td>
+				<td><?=$rs['Addresses_id']?></td>
+				
+				<td>
+					<a class ="glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
+					<a class ="glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
+					<a class ="glyphicon glyphicon-trash" href="?action=delete&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
+				</td>
 
 			</tr>
 		
@@ -32,6 +37,8 @@
 	</table>
 
 </div>
+
+<div class="modal fade" id="myModal"></div>
 
 <? function Scripts(){ ?> 
 	

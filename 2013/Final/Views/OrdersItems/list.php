@@ -3,7 +3,8 @@
 <div class="container">
 	
 	<h2>Orders Items</h2>
-	
+	<a href="?action=new&format=dialog" data-toggle="modal" data-target="#myModal">Add Orders Item</a>
+
 	<table class="table table-hover table-bordered table-striped table-condensed">
 		
 		<thead>
@@ -22,6 +23,11 @@
 				<td><?=$rs['Name']?></td>
 				<td><?=$rs['Orders_id']?></td>
 
+			<td>
+					<a class ="glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
+					<a class ="glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
+					<a class ="glyphicon glyphicon-trash" href="?action=delete&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
+				</td>
 			</tr>
 		
 		<? endforeach; ?>
@@ -30,6 +36,8 @@
 	</table>
 
 </div>
+
+<div class="modal fade" id="myModal"></div>
 
 <? function Scripts(){ ?> 
 	

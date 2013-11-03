@@ -3,7 +3,7 @@
 <div class="container">
 	
 	<h2>Products Category</h2>
-	<a href="?action=new">Add Product Category</a>
+	<a href="?action=new&format=dialog" data-toggle="modal" data-target="#myModal">Add Product Category</a>
 	
 	<table class="table table-hover table-bordered table-striped table-condensed">
 		
@@ -16,6 +16,7 @@
 		
 		</tr>
 		</thead>
+		
 		<tbody>
 		<? foreach ($model as $rs): ?>
 
@@ -23,9 +24,9 @@
 				<td ><?=$rs['Name']?></td>
 
 				<td>
-					<a class ="glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>" data-toggle="modal" data-target="#myModal"></a>
-					<a class ="glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>"></a>
-					<a class ="glyphicon glyphicon-trash" href="?action=delete&id=<?=$rs['id']?>"></a>
+					<a class ="glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
+					<a class ="glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
+					<a class ="glyphicon glyphicon-trash" href="?action=delete&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
 				</td>
 
 			</tr>
@@ -36,6 +37,9 @@
 	</table>
 
 </div>
+
+<!-- Dialog View gets placed in here -->
+<div class="modal fade" id="myModal"></div>
 
 <? function Scripts(){ ?> 
 	

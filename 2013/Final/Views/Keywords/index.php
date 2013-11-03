@@ -4,6 +4,8 @@
 	include_once "../../inc/_global.php";
 
 	@$action = $_REQUEST['action'];//Merges together the GET and POST
+	@$format = $_REQUEST['format'];//Merges together the GET and POST
+	
 	
 	switch ($action) {
 		
@@ -21,9 +23,33 @@
 			
 			$model = Keywords::Get($_REQUEST['id']);
 			$view  = 'edit.php';
-		break;
+			break;
 			
+		case 'delete':
+						
+			//Only triggered when a 'post' is sent
+			if(isset($_POST['id'])){
+				
+				$errors = Keywords::Delete($_REQUEST['id']);
+				if( $errors ){
+				
+					//Display the record with error messages
+					$model = Keywords::Get($_REQUEST['id']);
+					$view = 'error.php';
+					break;
+					
+				}
+				
+				header("Location: ?");
+				die();
+			}
 			
+			//Default call when no 'post' is sent
+			$model = Keywords::Get($_REQUEST['id']);
+			$view  = 'delete.php';			
+			$title = "Delete: $model[Names]" ;
+			break;
+				
 		case 'save':
 			
 			$errors = Keywords::Validate($_REQUEST);//Check validation if it is good
@@ -50,5 +76,17 @@
 			break;
 	}
 
-		include '../Shared/_Layout.php';
+	switch ($format) {
+		
+		case 'dialog':
+			include '../Shared/_DialogLayout.php';
+			break;
+		
+		default:
+			include '../Shared/_Layout.php';
+			break;
+	}
+	
+
+
 	

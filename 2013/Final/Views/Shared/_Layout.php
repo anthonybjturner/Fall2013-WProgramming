@@ -30,7 +30,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Shared</a>
+				<a class="navbar-brand" href="../../">Final</a>
 				
 			</div>
 				

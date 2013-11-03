@@ -16,29 +16,30 @@
 			<th></th>
 		</tr>
 		</thead>
-		<tbody>
-		<? foreach ($model as $rs): ?>
-
-			<tr> 
-				<td ><?=$rs['id']?></td>
-				<td><?=$rs['Names']?></td>
-
-
-				<!-- Create links and buttons for each field/row-->
-				<td>
-					<a class ="glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>" data-toggle="modal" data-target="#myModal" ></a>
-					<a class ="glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>"></a>
-					<a class ="glyphicon glyphicon-trash" href="?action=delete&id=<?=$rs['id']?>"></a>
-				</td>
-
-			</tr>
 		
-		<? endforeach; ?>
+		<tbody>
+			<? foreach ($model as $rs): ?>
+				<tr> 
+					<td ><?=$rs['id']?></td>
+					<td><?=$rs['Names']?></td>
 	
+					<!-- Create links and buttons for each field/row-->
+					<td>
+						<a class ="glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
+						<a class ="glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
+						<a class ="glyphicon glyphicon-trash" href="?action=delete&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
+					</td>
+				</tr>
+			
+			<? endforeach; ?>
 		</tbody>
 	</table>
-
 </div>
+
+<div class="modal fade" id="myModal">
+	
+</div>
+
 
 <? function Scripts(){ ?> 
 	

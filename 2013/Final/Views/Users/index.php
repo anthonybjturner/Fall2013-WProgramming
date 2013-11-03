@@ -55,19 +55,26 @@ switch ($action) {
 		
 		if(isset($_POST['id'])){
 			
-				//Check for errors when saving
-			$errors = Users::Delete($_REQUEST['id']);//Save
+			//Check for errors when deleting
+			$errors = Users::Delete($_REQUEST['id']);
 			//If there are still no errrors then we redirect
-			if( !$errors){
+			if( $errors){
 				
-				header("Location: ?");
+				$model = Users::Get($_REQUEST['id']);
+				
+				$view = 'error.php';
+				break;	
+			}
+				
+			
+			header("Location: ?");
 				die();//Kills preproccesor processing
 				//End after die	
-			}	
+			//echo('there are errors '.$errors['db_error']);
 		}
 			
 		$model = Users::Get($_REQUEST['id']);
-		$view  = 'details.php';
+		$view  = 'delete.php';
 		$title = "Edit: $model[FirstName] $model[LastName]" ;
 		break;
 	
@@ -89,7 +96,6 @@ switch($format){
 	default: 
 		include '../Shared/_Layout.php';
 		break;
-	
-	
+
 }
 	

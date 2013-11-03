@@ -4,8 +4,9 @@
 	
 	<h2>Users</h2>
 	
-	<a class="glyphicon glyphicon-plus " href="?action=new">Add Contact</a>
-	
+		<a class="glyphicon glyphicon-plus " href="?action=new&format=dialog" data-toggle="modal" data-target="#myModal">Add Contact</a>
+
+
 	<table class="table table-hover table-bordered table-striped">
 		
 		<thead>
@@ -29,9 +30,9 @@
 				<td><?=$rs['UserType']?></td>
 				<!-- Create links and buttons for each field/row-->
 				<td>
-					<a class ="glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?> &format=dialog" data-toggle="modal" data-target="#myModal"></a>
-					<a class ="glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>>&format=dialog " data-toggle="modal" data-target="#myModal"></a>
-					<a class ="glyphicon glyphicon-trash" href="?action=delete&id=<?=$rs['id']?>>&format=dialog " data-toggle="modal" data-target="#myModal"></a>
+					<a class ="glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
+					<a class ="glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
+					<a class ="glyphicon glyphicon-trash" href="?action=delete&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
 				</td>
 
 			</tr>
@@ -42,7 +43,7 @@
 	</table>
 </div>
 
-<div id="myModal" class="modal fade">
+<div class="modal fade" id="myModal" >
 	
 	<!-- View needs to be in a new layout with the javascript data -->
 	
