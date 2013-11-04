@@ -17,6 +17,13 @@ class Keywords {
 
 	}
 	
+	static public function GetSelectListFor($id){
+			
+		
+		return fetch_all("SELECT id, Name FROM Keywords WHERE 'Type'=$id ");
+	
+	}
+	
 	static public function Save($row){
 		
 		$conn = GetConnection();
@@ -31,7 +38,7 @@ class Keywords {
 			
 			//Insert statement ( a new record )
 				$sql = " Insert Into Keywords (id, ParentId, Names) "
-                        .        " Values ('$row2[ParentId]', '$row2[ParentId]', '$row2[Names]') ";
+                        .        " Values ('$row2[id]', '$row2[ParentId]', '$row2[Names]') ";
 		}
 						
         $conn->query($sql);//Insert the values from the associative array $row into the current connections database with the $sql variable

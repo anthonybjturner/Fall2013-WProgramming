@@ -46,7 +46,7 @@
                 </div>
                 
                 
-                <div class="form-group <?=isset($errors['UserType']) ? 'has-error' : ''?>">
+                <div class="form-group <?=isset($errors['fbid']) ? 'has-error' : ''?>">
                         <label for="fbid" class="col-sm-2 control-label">Facebook Id</label>
                         <div class="col-sm-10">
                                 <input type="text" name="fbid" id="fbid" placeholder="Facebook Id" class="form-control " value="<?=$model['fbid']?>" />
@@ -58,7 +58,14 @@
                 <div class="form-group <?=isset($errors['UserType']) ? 'has-error' : ''?>">
                         <label for="UserType" class="col-sm-2 control-label">User Type</label>
                         <div class="col-sm-10">
-                                <input type="text" name="UserType" id="UserType" placeholder="User Type" class="form-control " value="<?=$model['UserType']?>" />
+                             <select name="UserType" id="UserType" class="form-control ">
+								<? foreach (Keywords::GetSelectListFor(2) as $keywordRs):?><!-- Used for restricting user types-->
+									
+									<!-- <option <? if($model['UserType'] == $keywordRs['id']){ ?> selected="selected"<? } ?> value="<?=$keywordRs['id']?>"> <?=$keywordRs['Name']?></option> -->
+									<option  value="<?=$keywordRs['id']?>"> <?=$keywordRs['Name']?></option>
+
+								<? endforeach; ?>
+							</select>
                         </div>
                         <span><?=@$errors['UserType']?></span>
                 </div>
@@ -71,3 +78,13 @@
                 </div>
         </form>
 </div>
+
+<!-- Option two for displaying UserTypes for ID keywords-->
+<script type="text/javascript">
+	$(function()){
+		
+		$("#UserType").val(<?=$model['UserType']?>);
+		
+	})
+	
+</script>

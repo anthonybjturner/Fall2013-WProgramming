@@ -32,7 +32,7 @@ switch ($action) {
 		//If there are still no errrors then we redirect
 		if( !$errors){
 			
-			header("Location: ?");
+			header("Location: ?status=Saved&id=$_REQUEST[id]");
 			die();//Kills preproccesor processing
 			//End after die	
 		}

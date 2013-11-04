@@ -29,10 +29,13 @@ function fetch_all($sql){
 	$conn = GetConnection();
 	$result = $conn->query($sql);//Send a query with the given $sql statement/arguments
 	
+		echo $conn->error;
+	
 	while( $rs = $result->fetch_assoc()){
 		
 		$ret[] = $rs;//Adding on to the end of collection
 	}
+	
 
 	$conn->close();
 	return $ret;	
