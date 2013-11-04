@@ -12,6 +12,9 @@
 
 	<dt>Password</dt>
 	<dd><?=$model['Password']?>    </dd>
+	
+	<dt>Facebook Id</dt>
+	<dd><?=$model['fbid']?>    </dd>
 
 	<dt>UserType</dt>
 	<dd><?=$model['UserType']?>    </dd>

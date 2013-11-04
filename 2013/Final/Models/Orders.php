@@ -9,9 +9,9 @@ class Orders{
 			
 		if(isset($id)){
 			
-			return fetch_one("SELECT * FROM 2013Fall_Orders WHERE id=$id");//Double quotes takes the actual value of $id
+			return fetch_one("SELECT * FROM Orders WHERE id=$id");//Double quotes takes the actual value of $id
 		}else{
-			return fetch_all('SELECT * FROM 2013Fall_Orders');
+			return fetch_all('SELECT * FROM Orders');
 		}
 		
 		return $ret;	
@@ -26,12 +26,12 @@ class Orders{
 		
 		if($row['id']){//Update field if the returned value for the id is not null
 			
-			$sql = " UPDATE 2013Fall_Orders Set OrdersItems_id='$row2[OrdersItems_id], Addresses_id='$row2[Addresses_id]' WHERE id=$row[id]";
+			$sql = " UPDATE Orders Set User_id='$row2[User_id], Addresses_id='$row2[Addresses_id]' WHERE id=$row[id]";
 		}else{
 			
 			//Insert statement ( a new record )
-				$sql = " Insert Into 2013Fall_Orders (OrdersItems_id, Addresses_id) "
-                        .        " Values ('$row2[OrdersItems_id]','$row2[Addresses_id]') ";
+				$sql = " Insert Into Orders (User_id, Addresses_id) "
+                        .        " Values ('$row2[User_id]','$row2[Addresses_id]') ";
 		}
 						
         $conn->query($sql);//Insert the values from the associative array $row into the current connections database with the $sql variable
@@ -49,15 +49,15 @@ class Orders{
 	
 	static public function Blank(){
 				
-		return array('id' => null, 'OrdersItems_id' => null, 'Addresses_id' => null);
+		return array('id' => null, 'User_id' => null, 'Addresses_id' => null);
 		
 	}
 	
 	static public function Validate($row){
 
 		$errors = array();//Only one error per field
-		if( !$row['OrdersItems_id'])$errors['OrdersItems_id'] = 'is required'; 	
-		if( !is_numeric($row['OrdersItems_id']))$errors['OrdersItems_id'] = 'must be a number';	
+		if( !$row['User_id'])$errors['User_id'] = 'is required'; 	
+		if( !is_numeric($row['User_id']))$errors['User_id'] = 'must be a number';	
 		if( !$row['Addresses_id'])$errors['Addresses_id'] = 'is required'; 	
 		if( !is_numeric($row['Addresses_id']))$errors['Addresses_id'] = 'must be a number';	
 		

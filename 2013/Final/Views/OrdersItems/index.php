@@ -11,20 +11,20 @@
 		case 'detail':
 			$model = OrdersItems::Get($_REQUEST['id']);
 			$view = 'details.php';
-			$title = "Details: $model[Name] $model[Orders_id]";
+			$title = "Details: $model[Name]";
 			break;
 			
 		case 'new':
 			$model = OrdersItems::Blank();//Null Associative array
 			$view  = 'edit.php';
-			$title = "Create new Order";
+			$title = "Create new Orders Item";
 			break;
 			
 		case 'edit':
 			
 			$model = OrdersItems::Get($_REQUEST['id']);
 			$view  = 'edit.php';
-			$title = "Edit: $model[Name] $model[Orders_id]";
+			$title = "Edit: $model[Name]";
 			
 		break;
 			
@@ -47,8 +47,7 @@
 			//Only get here if there are errors
 			$model = $_REQUEST;//Repost previous entered data from post
 			$view = 'edit.php';
-			$title = "Edit: $model[Name] $model[Orders_id]";
-			
+			$title = "Edit: $model[Name]";
 			break;	
 			
 		case 'delete':
@@ -72,7 +71,7 @@
 
 			$model = OrdersItems::Get($_REQUEST['id']);
 			$view = 'delete.php';
-			$title = "Delete: $model[Name] $model[Orders_id]";
+			$title = "Delete: $model[Name]";
 			break;
 			
 					

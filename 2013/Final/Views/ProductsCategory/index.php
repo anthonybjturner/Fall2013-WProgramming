@@ -7,22 +7,25 @@
 	@$format = $_REQUEST['format'];//Merges together the GET and POST
 	
 	switch ($action) {
-		
-		case 'detail':
-			$model = ProductsCategory::Get($_REQUEST['id']);
-			$view = 'details.php';
-			break;
 			
 		case 'new':
 			$model = ProductsCategory::Blank();//Null Associative array
 			$view  = 'edit.php';
+			$title = "Create new Product Category";
 			break;
 			
+		case 'details':
+			$model = ProductsCategory::Get($_REQUEST['id']);
+			$view = 'details.php';
+			$title = "Details: $model[Name]";
+			break;
+	
 		case 'edit':
 			
 			$model = ProductsCategory::Get($_REQUEST['id']);
 			$view  = 'edit.php';
-		break;
+			$title = "Edit: $model[Name]";
+			break;
 			
 			
 		case 'save':
@@ -43,6 +46,7 @@
 			//Only get here if there are errors
 			$model = $_REQUEST;//Repost previous entered data from post
 			$view = 'edit.php';
+			$title = "Save: $model[Name]";
 			break;	
 			
 		case 'delete':

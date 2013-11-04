@@ -1,20 +1,26 @@
 <div class="container">
 <dl class="dl-horizontal">
 	
+	<dt>Name</dt>
+	<dd><?=$model['Name']?>    </dd>
+	
 	<dt>Price</dt>
-	<dd><?=$model['FirstName']?>    </dd>
+	<dd><?=$model['Price']?>    </dd>
 
-	<dt>Quantity</dt>
-	<dd><?=$model['Quantity']?>    </dd>
+	<dt>Description</dt>
+	<dd><?=$model['Description']?>    </dd>
+	
+	<dt>Picture</dt>
+	<dd><?=$model['Picture_Url']?>    </dd>
 
 	<dt>Created At</dt>
 	<dd><?=$model['created_at']?>    </dd>
 
 	<dt>Suppliers id</dt>
-	<dd><?=$model['Suppliers_id1']?>    </dd>
+	<dd><?=$model['Suppliers_id']?>    </dd>
 
-	<dt>Orders Items id</dt>
-	<dd><?=$model['OrdersItems_id1']?>    </dd>
+	<dt>Product Category id</dt>
+	<dd><?=$model['ProductsCategory_id']?>    </dd>
 	
 
 </dl>

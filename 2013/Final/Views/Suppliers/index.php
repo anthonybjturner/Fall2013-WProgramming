@@ -8,26 +8,24 @@
 	
 	switch ($action) {
 		
-		case 'detail':
+		case 'new':
+			$model = Suppliers::Blank();//Null Associative array
+			$view  = 'edit.php';
+			$title = "Create new Supplier";
+			break;
+		
+		case 'details':
 			$model = Suppliers::Get($_REQUEST['id']);
 			$view = 'details.php';
 			$title = "Details: $model[Name]";
 			break;
-			
-		case 'new':
-			$model = Suppliers::Blank();//Null Associative array
-			$view  = 'edit.php';
-			$title = "Create new user";
-			break;
-			
+
 		case 'edit':
 			
 			$model = Suppliers::Get($_REQUEST['id']);
 			$view  = 'edit.php';
 			$title = "Edit: $model[Name]";
-			
-		break;
-			
+			break;
 			
 		case 'save':
 			
@@ -47,7 +45,7 @@
 			//Only get here if there are errors
 			$model = $_REQUEST;//Repost previous entered data from post
 			$view = 'edit.php';
-			$title = "Edit: $model[Name]";
+			$title = "Save: $model[Name]";
 			
 			break;	
 			

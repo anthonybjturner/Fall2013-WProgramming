@@ -11,7 +11,7 @@
 		<tr>
 			
 			<!-- Always match up th with td -->
-			<th>Order Item ID</th>
+			<th>Users ID</th>
 			<th>Address ID</th>
 			
 		</tr>
@@ -20,7 +20,7 @@
 		<? foreach ($model as $rs): ?>
 
 			<tr> 
-				<td><?=$rs['OrdersItems_id']?></td>
+				<td><?=$rs['User_id']?></td>
 				<td><?=$rs['Addresses_id']?></td>
 				
 				<td>

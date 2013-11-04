@@ -13,6 +13,9 @@
 			<!-- Always match up th with td -->
 			<th>Name</th>
 			<th>Orders ID</th>
+			<th>Prodcuts ID</th>
+			<th>Action</th>
+
 			
 		</tr>
 		</thead>
@@ -22,6 +25,7 @@
 			<tr> 
 				<td><?=$rs['Name']?></td>
 				<td><?=$rs['Orders_id']?></td>
+				<td><?=$rs['Products_id']?></td>
 
 			<td>
 					<a class ="glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>

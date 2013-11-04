@@ -14,20 +14,19 @@
                 
                 <input type="hidden" name="id" value="<?=$model['id']?>" />
                 
-                <div class="form-group <?=isset($errors['User_id']) ? 'has-error' : ''?>">
-                        <label for="User_id" class="col-sm-2 control-label">Users id</label>
+                <div class="form-group <?=isset($errors['Keywords_id']) ? 'has-error' : ''?>">
+                        <label for="Keywords_id" class="col-sm-2 control-label">Keyword Id</label>
                         <div class="col-sm-10">
-                                <input type="text" name="User_id" id="User_id" placeholder="Users ID" class="form-control " value="<?=$model['User_id']?>" />
+                                <input type="text" name="Keywords_id" id="Keywords_id" placeholder="Keyword Id" class="form-control " value="<?=$model['Keywords_id']?>" />
                         </div>
-                        <span><?=@$errors['User_id']?></span>
+                        <span><?=@$errors['Keywords_id']?></span>
                 </div>
-
-				<div class="form-group <?=isset($errors['Addresses_id']) ? 'has-error' : ''?>">
-                        <label for="Addresses_id" class="col-sm-2 control-label">Addresses Id</label>
+                <div class="form-group <?=isset($errors['Products_id']) ? 'has-error' : ''?>">
+                        <label for="Products_id" class="col-sm-2 control-label">Product id</label>
                         <div class="col-sm-10">
-                                <input type="text" name="Addresses_id" id="Addresses_id" placeholder="Addresses ID" class="form-control " value="<?=$model['Addresses_id']?>" />
+                                <input type="text" name="Products_id" id="Products_id" placeholder="Product Id" class="form-control " value="<?=$model['Products_id']?>" />
                         </div>
-                        <span><?=@$errors['Addresses_id']?></span>
+                        <span><?=@$errors['Products_id']?></span>
                 </div>
 
                 <div class="form-group">

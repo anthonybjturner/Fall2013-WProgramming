@@ -10,9 +10,9 @@ class Suppliers {
 		
 		if(isset($id)){
 			
-			return fetch_one("SELECT * FROM 2013Fall_Suppliers WHERE id=$id");//Double quotes takes the actual value of $id
+			return fetch_one("SELECT * FROM Suppliers WHERE id=$id");//Double quotes takes the actual value of $id
 		}else{
-			return fetch_all('SELECT * FROM 2013Fall_Suppliers');
+			return fetch_all('SELECT * FROM Suppliers');
 		}
 		
 		return $ret;	
@@ -23,7 +23,7 @@ class Suppliers {
 		
 		$conn = GetConnection();
 			
-		$sql = " DELETE FROM 2013Fall_Suppliers WHERE id=$id";
+		$sql = " DELETE FROM Suppliers WHERE id=$id";
 		
 		$conn->query($sql);//Insert the values from the associative array $row into the current connections database with the $sql variable
         $error = $conn->error;    //Returns the last error message (if there's one) for the most recent MySQLi function call that can succeed or fail.
@@ -44,12 +44,12 @@ class Suppliers {
 		
 		if($row['id']){//Update field if the returned value for the id is not null
 			
-			$sql = " UPDATE 2013Fall_Suppliers "														//change to 2013Fall_Users_id
+			$sql = " UPDATE Suppliers "														//change to 2013Fall_Users_id
 			.		"	Set Name='$row2[Name]' WHERE id=$row[id]";
 		}else{
 			
 			//Insert statement ( a new record )
-				$sql = " Insert Into 2013Fall_Suppliers (Name) "
+				$sql = " Insert Into Suppliers (Name) "
                         .        " Values ('$row2[Name]') ";
 		}
 		

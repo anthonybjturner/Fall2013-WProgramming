@@ -3,38 +3,37 @@
 /**
  * 
  */
-class Users {
+class ProductKeywords {
 	
+
 	static public function Get($id=null){
 			
 		if(isset($id)){
 			
-			return fetch_one("SELECT * FROM Users WHERE id=$id");//Double quotes takes the actual value of $id
+			return fetch_one("SELECT * FROM Product_Keywords WHERE id=$id");//Double quotes takes the actual value of $id
 		}else{
-			return fetch_all('SELECT * FROM Users');
+			return fetch_all('SELECT * FROM Product_Keywords');
 		}
 
 	}
 	
-	
 	static public function Save($row){
 		
 		$conn = GetConnection();
-		$row2 = Users::Encode($row, $conn);
+		$row2 = Keywords::Encode($row, $conn);
 		
 		if($row['id']){
 			
-			$sql = " UPDATE Users "
-			.		"	Set FirstName='$row2[FirstName]', LastName='$row2[LastName]', Password='$row2[Password]',"
-			.		"   fbid='$row2[fbid]', UserType='$row2[UserType]' "
+			$sql = " UPDATE Product_Keywords "
+			.		"	Set Products_id='$row2[Products_id]', Keywords_id='$row2[Keywords_id]' "
 			.		"	WHERE id=$row[id]	";
 		}else{
 			
 			//Insert statement ( a new record )
-			$sql = " Insert Into Users (FirstName, LastName, Password, fbid, UserType) "
-            .      " Values ('$row2[FirstName]', '$row2[LastName]', '$row2[Password]','$row2[fbid]', '$row2[UserType]') ";
+				$sql = " Insert Into Product_Keywords (Products_id, Keywords_id) "
+                        .        " Values ('$row2[Products_id]', '$row2[Keywords_id]') ";
 		}
-				
+						
         $conn->query($sql);//Insert the values from the associative array $row into the current connections database with the $sql variable
         $error = $conn->error;    //Returns the last error message (if there's one) for the most recent MySQLi function call that can succeed or fail.
                    
@@ -46,13 +45,15 @@ class Users {
                 return false;
         }	
 	}
-	
+
+
 	static public function Delete($id){
-			
+		
 		$conn = GetConnection();
-		$sql = " Delete From Users Where id=$id ";
-					
-        $conn->query($sql);//Insert the values from the associative array $row into the current connections database with the $sql variable
+			
+		$sql = " DELETE FROM Keywords WHERE id=$id";
+		
+		$conn->query($sql);//Insert the values from the associative array $row into the current connections database with the $sql variable
         $error = $conn->error;    //Returns the last error message (if there's one) for the most recent MySQLi function call that can succeed or fail.
                    
         $conn->close();
@@ -66,17 +67,18 @@ class Users {
 	
 	static public function Blank(){
 				
-		return array('id'=> null, 'FirstName' => null , 'LastName' => null, 'Password' => null, 'fbid' => null, 'UserType' => null);
+		return array('id'=> null, 'Products_id'=> null,'Keywords_id' => null);
 		
 	}
 	
 	static public function Validate($row){
 
-		$errors = array();//Only one error per field/element
-		if( !$row['FirstName'])$errors['FirstName'] = 'is required'; 		
-		if( !$row['LastName'])$errors['LastName'] = 'is required';
-		if( !is_numeric($row['UserType']))$errors['UserType'] = 'must be a number';
-		if( !$row['UserType'])$errors['UserType'] = 'id required';
+		$errors = array();//Only one error per field
+		if( !$row['Products_id'])$errors['Products_id'] = 'is required'; 		
+		if( !is_numeric($row['Products_id']))$errors['Products_id'] = 'must be a number';
+		
+		if( !$row['Keywords_id'])$errors['Keywords_id'] = 'is required';
+		if( !is_numeric($row['Keywords_id']))$errors['Keywords_id'] = 'must be a number';
 				
 		return count($errors) ? $errors : null;
 	}

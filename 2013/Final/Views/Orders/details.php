@@ -2,7 +2,7 @@
 <dl class="dl-horizontal">
 	
 	<dt>Order Item</dt>
-	<dd><?=$model['OrdersItems_id']?>    </dd>
+	<dd><?=$model['User_id']?>    </dd>
 	<dd><?=$model['Addresses_id']?>    </dd>
 
 </dl>

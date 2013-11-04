@@ -45,6 +45,15 @@
                         <span><?=@$errors['Password']?></span>
                 </div>
                 
+                
+                <div class="form-group <?=isset($errors['UserType']) ? 'has-error' : ''?>">
+                        <label for="fbid" class="col-sm-2 control-label">Facebook Id</label>
+                        <div class="col-sm-10">
+                                <input type="text" name="fbid" id="fbid" placeholder="Facebook Id" class="form-control " value="<?=$model['fbid']?>" />
+                        </div>
+                        <span><?=@$errors['fbid']?></span>
+                </div>
+                
                 <!-- UserType input field -->
                 <div class="form-group <?=isset($errors['UserType']) ? 'has-error' : ''?>">
                         <label for="UserType" class="col-sm-2 control-label">User Type</label>

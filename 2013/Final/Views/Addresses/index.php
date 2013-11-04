@@ -10,10 +10,10 @@
 		case 'new':
 			$model = Addresses::Blank();//Null Associative array
 			$view  = 'edit.php';
-			$title = "Create new user";
+			$title = "Create new Address";
 			break;
 		
-		case 'detail':
+		case 'details':
 			$model = Addresses::Get($_REQUEST['id']);
 			$view = 'details.php';
 			$title = "Details for: $model[City] $model[State] ";
@@ -50,7 +50,7 @@
 			//Default call when no 'post' is sent
 			$model = Addresses::Get($_REQUEST['id']);
 			$view  = 'delete.php';			
-			$title = "Delete: $model[FirstName] $model[LastName]" ;
+			$title = "Delete: $model[City] $model[State]" ;
 			break;
 			
 		case 'save':
@@ -71,7 +71,7 @@
 			//Only get here if there are errors
 			$model = $_REQUEST;//Repost previous entered data from post
 			$view = 'edit.php';
-			$title = "Save: $model[FirstName] $model[LastName]" ;
+			$title = "Save: $model[City] $model[State]" ;
 			break;	
 					
 		default:

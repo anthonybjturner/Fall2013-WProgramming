@@ -3,6 +3,7 @@ include_once('_password.php');
 include_once __DIR__ . '/../Models/Keywords.php';
 include_once __DIR__ . '/../Models/Users.php';
 include_once __DIR__ . '/../Models/Addresses.php';
+include_once __DIR__ . '/../Models/ProductKeywords.php';
 include_once __DIR__ . '/../Models/Products.php';
 include_once __DIR__ . '/../Models/ProductsCategory.php';
 include_once __DIR__ . '/../Models/ContactMethods.php';

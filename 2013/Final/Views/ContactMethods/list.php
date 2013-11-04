@@ -3,7 +3,8 @@
 <div class="container">
 	
 	<h2>Contact Methods</h2>
-	
+	<a href="?action=new&format=dialog" data-toggle="modal" data-target="#myModal">Add Contact Method</a>
+
 	<table class="table table-hover table-bordered table-striped table-condensed">
 		
 		<thead>
@@ -11,17 +12,23 @@
 			
 			<!-- Always match up th with td -->
 			<th>User ID</th>
-			<th>Keywords ID</th>
-			
+			<th>Contact Method Type</th>
+			<th>Action</th>
 		</tr>
 		</thead>
 		<tbody>
 		<? foreach ($model as $rs): ?>
 
-			<tr> 
-				<td><?=$rs['2013Fall_Users_id']?></td>
-				<td><?=$rs['2013Fall_Keywords_id']?></td>
+			<tr>
+				<td><?=$rs['Users_id']?></td> 
+				<td><?=$rs['ContactMethodType']?></td>
+				
 
+					<td>
+						<a class ="glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
+						<a class ="glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
+						<a class ="glyphicon glyphicon-trash" href="?action=delete&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
+					</td>
 			</tr>
 		
 		<? endforeach; ?>
@@ -30,6 +37,8 @@
 	</table>
 
 </div>
+
+<div class="modal fade" id="myModal"></div>
 
 <? function Scripts(){ ?> 
 	

@@ -2,46 +2,44 @@
 
 <div class="container">
 	
-	<h2>Phone Numbers</h2>
-	<a href="?action=new&format=dialog" data-toggle="modal" data-target="#myModal">Add Phone Number</a>
-
+	<h2>Product Keywords</h2>
+	<a href="?action=new&format=dialog" data-toggle="modal" data-target="#myModal">Add Product Keyword</a>
+	
 	<table class="table table-hover table-bordered table-striped table-condensed">
 		
 		<thead>
 		<tr>
 			
 			<!-- Always match up th with td -->
-			<th>User id</th>
-			<th>Number</th>
-			<th>Phone Types id</th>
+			<th>Product id</th>
+			<th>Keywords id</th>
 			<th>Action</th>
-
 		</tr>
 		</thead>
+		
 		<tbody>
-		<? foreach ($model as $rs): ?>
-
-			<tr> 
-				<td><?=$rs['Users_id']?></td>
-				<td><?=$rs['Value']?></td>
-				<td><?=$rs['PhoneTypes_id']?></td>
-
-
+			<? foreach ($model as $rs): ?>
+				<tr> 
+					<td><?=$rs['Products_id']?></td>
+					<td ><?=$rs['Keywords_id']?></td>
+					
+					<!-- Create links and buttons for each field/row-->
 					<td>
 						<a class ="glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
 						<a class ="glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
 						<a class ="glyphicon glyphicon-trash" href="?action=delete&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
 					</td>
-			</tr>
-		
-		<? endforeach; ?>
-	
+				</tr>
+			
+			<? endforeach; ?>
 		</tbody>
 	</table>
-
 </div>
 
-<div class="modal fade" id="myModal"></div>
+<div class="modal fade" id="myModal">
+	
+</div>
+
 
 <? function Scripts(){ ?> 
 	

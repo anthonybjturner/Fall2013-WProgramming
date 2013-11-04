@@ -1,21 +1,23 @@
 <div class="container">
 <dl class="dl-horizontal">
 	
-	<dt>First Name</dt>
-	<dd><?=$model['FirstName']?>    </dd>
+	<dt>City</dt>
+	<dd><?=$model['City']?>    </dd>
 
-	<dt>Last Name</dt>
-	<dd><?=$model['LastName']?>    </dd>
+	<dt>State</dt>
+	<dd><?=$model['State']?>    </dd>
 
 	<dt>Created At</dt>
 	<dd><?=$model['created_at']?>    </dd>
 
-	<dt>Password</dt>
-	<dd><?=$model['Password']?>    </dd>
+	<dt>Zipcode</dt>
+	<dd><?=$model['Zipcode']?>    </dd>
 
-	<dt>UserType</dt>
-	<dd><?=$model['UserType']?>    </dd>
+	<dt>User Id</dt>
+	<dd><?=$model['Users_id']?>    </dd>
 	
+	<dt>AddressType</dt>
+	<dd><?=$model['AddressType']?>    </dd>
 
 </dl>
 </div>

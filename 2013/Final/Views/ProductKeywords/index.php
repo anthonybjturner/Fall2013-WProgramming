@@ -1,38 +1,42 @@
+
 <?php
 	//Controller for the model
 	include_once "../../inc/_global.php";
 
 	@$action = $_REQUEST['action'];//Merges together the GET and POST
-	@$format = $_REQUEST['format'];
+	@$format = $_REQUEST['format'];//Merges together the GET and POST
+	
 	
 	switch ($action) {
-		
-		case 'new':
-			$model = Products::Blank();//Null Associative array
+			
+			case 'new':
+			$model = ProductKeywords::Blank();//Null Associative array
 			$view  = 'edit.php';
-			$title = "Create new Product";
+			$title = "New Product Keyword:";
 			break;
+			
 		
 		case 'details':
-			$model = Products::Get($_REQUEST['id']);
+			$model = ProductKeywords::Get($_REQUEST['id']);
 			$view = 'details.php';
-			$title = "Details for: $model[Name]";
+			$title = "Details: $model[Keywords_id]";
 			break;
+			
+		
 			
 		case 'edit':
 			
-			$model = Products::Get($_REQUEST['id']);
+			$model = ProductKeywords::Get($_REQUEST['id']);
 			$view  = 'edit.php';
-			$title = "Edit: $model[Name]";
+			$title = "Edit: $model[Keywords_id]";
 			break;
-			
-			
+	
 		case 'save':
 			
-			$errors = Products::Validate($_REQUEST);//Check validation if it is good
+			$errors = ProductKeywords::Validate($_REQUEST);//Check validation if it is good
 			if(!$errors){
 				//Check for errors when saving
-				$errors = Products::Save($_REQUEST);//Save
+				$errors = ProductKeywords::Save($_REQUEST);//Save
 			}
 		
 			//If there are still no errrors then we redirect
@@ -45,20 +49,19 @@
 			//Only get here if there are errors
 			$model = $_REQUEST;//Repost previous entered data from post
 			$view = 'edit.php';
-			$title = "Save: $model[Name]";
-			
+			$title = "Save: $model[Keywords_id]";
 			break;	
 			
-		case 'delete':
+			case 'delete':
 						
 			//Only triggered when a 'post' is sent
 			if(isset($_POST['id'])){
 				
-				$errors = Products::Delete($_REQUEST['id']);
+				$errors = ProductKeywords::Delete($_REQUEST['id']);
 				if( $errors ){
 				
 					//Display the record with error messages
-					$model = Products::Get($_REQUEST['id']);
+					$model = ProductKeywords::Get($_REQUEST['id']);
 					$view = 'error.php';
 					break;
 					
@@ -69,27 +72,28 @@
 			}
 			
 			//Default call when no 'post' is sent
-			$model = Products::Get($_REQUEST['id']);
+			$model = ProductKeywords::Get($_REQUEST['id']);
 			$view  = 'delete.php';			
-			$title = "Delete: $model[Name]" ;
+			$title = "Delete: $model[Keywords_id]" ;
 			break;
 					
 		default:
-			$model = Products::Get();
+			$model = ProductKeywords::Get();
 			$view = 'list.php';//Gives list of keyowrds to list.php
-	
+			break;
 	}
 
-			
-switch($format){
-	
-	case 'dialog':
-		include '../Shared/_DialogLayout.php';
-		break;
+	switch ($format) {
 		
-	default: 
-		include '../Shared/_Layout.php';
-		break;
+		case 'dialog':
+			include '../Shared/_DialogLayout.php';
+			break;
+		
+		default:
+			include '../Shared/_Layout.php';
+			break;
+	}
+	
 
-}
+
 	

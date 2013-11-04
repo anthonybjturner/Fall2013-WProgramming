@@ -14,21 +14,22 @@
                 
                 <input type="hidden" name="id" value="<?=$model['id']?>" />
                 
-                <div class="form-group <?=isset($errors['User_id']) ? 'has-error' : ''?>">
-                        <label for="User_id" class="col-sm-2 control-label">Users id</label>
+                <div class="form-group <?=isset($errors['Users_id']) ? 'has-error' : ''?>">
+                        <label for="Users_id" class="col-sm-2 control-label">Users Id</label>
                         <div class="col-sm-10">
-                                <input type="text" name="User_id" id="User_id" placeholder="Users ID" class="form-control " value="<?=$model['User_id']?>" />
+                                <input type="text" name="Users_id" id="Users_id" placeholder="Users Id" class="form-control " value="<?=$model['Users_id']?>" />
                         </div>
-                        <span><?=@$errors['User_id']?></span>
+                        <span><?=@$errors['Users_id']?></span>
                 </div>
-
-				<div class="form-group <?=isset($errors['Addresses_id']) ? 'has-error' : ''?>">
-                        <label for="Addresses_id" class="col-sm-2 control-label">Addresses Id</label>
+                
+                <div class="form-group <?=isset($errors['ContactMethodType']) ? 'has-error' : ''?>">
+                        <label for="ContactMethodType" class="col-sm-2 control-label">Contact Method Type</label>
                         <div class="col-sm-10">
-                                <input type="text" name="Addresses_id" id="Addresses_id" placeholder="Addresses ID" class="form-control " value="<?=$model['Addresses_id']?>" />
+                                <input type="text" name="ContactMethodType" id="ContactMethodType" placeholder="Contact Method Type" class="form-control " value="<?=$model['ContactMethodType']?>" />
                         </div>
-                        <span><?=@$errors['Addresses_id']?></span>
+                        <span><?=@$errors['ContactMethodType']?></span>
                 </div>
+           
 
                 <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">

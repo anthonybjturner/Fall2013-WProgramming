@@ -16,7 +16,7 @@
 			<th>Zipcode</th>
 			<th>User ID</th>
 			<th>Address Type</th>
-			<th></th>
+			<th>Action</th>
 
 		</tr>
 		</thead>

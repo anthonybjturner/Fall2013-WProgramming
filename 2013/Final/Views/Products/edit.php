@@ -14,33 +14,52 @@
                 
                 <input type="hidden" name="id" value="<?=$model['id']?>" />
                 
-                <div class="form-group <?=isset($errors['City']) ? 'has-error' : ''?>">
+                  <div class="form-group <?=isset($errors['Name']) ? 'has-error' : ''?>">
+                        <label for="Name" class="col-sm-2 control-label">Name</label>
+                        <div class="col-sm-10">
+                                <input type="text" name="Name" id="Name" placeholder="Name" class="form-control " value="<?=$model['Name']?>" />
+                        </div>
+                        <span><?=@$errors['Name']?></span>
+                </div>
+                
+                <div class="form-group <?=isset($errors['Price']) ? 'has-error' : ''?>">
                         <label for="Price" class="col-sm-2 control-label">Price</label>
                         <div class="col-sm-10">
                                 <input type="text" name="Price" id="Price" placeholder="Price" class="form-control " value="<?=$model['Price']?>" />
                         </div>
                         <span><?=@$errors['Price']?></span>
                 </div>
-                <div class="form-group <?=isset($errors['Quantity']) ? 'has-error' : ''?>">
-                        <label for="Quantity" class="col-sm-2 control-label">Quantity</label>
+                
+                <div class="form-group <?=isset($errors['Description']) ? 'has-error' : ''?>">
+                        <label for="Description" class="col-sm-2 control-label">Description</label>
                         <div class="col-sm-10">
-                                <input type="text" name="Quantity" id="Quantity" placeholder="Quantity" class="form-control " value="<?=$model['Quantity']?>" />
+                                <input type="text" name="Description" id="Description" placeholder="Description" class="form-control " value="<?=$model['Description']?>" />
                         </div>
                         <span><?=@$errors['Quantity']?></span>
                 </div>
-                <div class="form-group <?=isset($errors['Suppliers_id1']) ? 'has-error' : ''?>">
-                        <label for="Suppliers_id1" class="col-sm-2 control-label">Suppliers id</label>
+                
+                 <div class="form-group <?=isset($errors['Picture_Url']) ? 'has-error' : ''?>">
+                        <label for="Picture_Url" class="col-sm-2 control-label">Picture url</label>
                         <div class="col-sm-10">
-                                <input type="text" name="Suppliers_id1" id="Suppliers_id1" placeholder="Suppliers id" class="form-control " value="<?=$model['Suppliers_id1']?>" />
+                                <input type="text" name="Picture_Url" id="Picture_Url" placeholder="Picture_Url" class="form-control " value="<?=$model['Picture_Url']?>" />
                         </div>
-                        <span><?=@$errors['Suppliers_id1']?></span>
+                        <span><?=@$errors['Picture_Url']?></span>
                 </div>
-                <div class="form-group <?=isset($errors['OrdersItems_id1']) ? 'has-error' : ''?>">
-                        <label for="OrdersItems_id1" class="col-sm-2 control-label">Orders Items id</label>
+                
+                <div class="form-group <?=isset($errors['Suppliers_id']) ? 'has-error' : ''?>">
+                        <label for="Suppliers_id" class="col-sm-2 control-label">Suppliers id</label>
                         <div class="col-sm-10">
-                                <input type="text" name="OrdersItems_id1" id="OrdersItems_id1" placeholder="Orders Items id" class="form-control " value="<?=$model['OrdersItems_id1']?>" />
+                                <input type="text" name="Suppliers_id" id="Suppliers_id" placeholder="Suppliers id" class="form-control " value="<?=$model['Suppliers_id']?>" />
                         </div>
-                        <span><?=@$errors['OrdersItems_id1']?></span>
+                        <span><?=@$errors['Suppliers_id']?></span>
+                </div>
+                
+                <div class="form-group <?=isset($errors['ProductsCategory_id']) ? 'has-error' : ''?>">
+                        <label for="ProductsCategory_id" class="col-sm-2 control-label">Products Category id</label>
+                        <div class="col-sm-10">
+                                <input type="text" name="ProductsCategory_id" id="ProductsCategory_id" placeholder="Products Category id" class="form-control " value="<?=$model['ProductsCategory_id']?>" />
+                        </div>
+                        <span><?=@$errors['ProductsCategory_id']?></span>
                 </div>
 
          

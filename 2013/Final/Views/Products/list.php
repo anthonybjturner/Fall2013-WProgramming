@@ -3,7 +3,7 @@
 <div class="container">
 	
 	<h2>Products</h2>
-	<a href="?action=new">Add Product</a>
+	<a href="?action=new&format=dialog" data-toggle="modal" data-target="#myModal">Add Product</a>
 	
 	<table class="table table-hover table-bordered table-striped table-condensed">
 		
@@ -11,8 +11,13 @@
 		<tr>
 			
 			<!-- Always match up th with td -->
+			<th>Name</th>
 			<th>Price</th>
-			<th>Quantity</th>
+			<th>Description</th>
+			<th>Picture</th>
+			<th>Suppliers Id</th>
+			<th>Product Category Id</th>
+			<th>Action</th>
 
 		</tr>
 		</thead>
@@ -20,14 +25,18 @@
 		<? foreach ($model as $rs): ?>
 
 			<tr> 
-				<td ><?=$rs['Price']?></td>
-				<td><?=$rs['Quantity']?></td>
+				<td><?=$rs['Name']?></td>
+				<td><?=$rs['Price']?></td>
+				<td><?=$rs['Description']?></td>
+				<td><?=$rs['Picture_Url']?></td>
+				<td><?=$rs['Suppliers_id']?></td>
+				<td><?=$rs['ProductsCategory_id']?></td>
 
 
 				<td>
-					<a class ="glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>" data-toggle="modal" data-target="#myModal"></a>
-					<a class ="glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>"></a>
-					<a class ="glyphicon glyphicon-trash" href="?action=delete&id=<?=$rs['id']?>"></a>
+					<a class ="glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
+					<a class ="glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>format=dialog" data-toggle="modal" data-target="#myModal"></a>
+					<a class ="glyphicon glyphicon-trash" href="?action=delete&id=<?=$rs['id']?>format=dialog" data-toggle="modal" data-target="#myModal"></a>
 				</td>
 
 			</tr>
@@ -38,6 +47,8 @@
 	</table>
 
 </div>
+
+<div class="modal fade" id="myModal"></div>
 
 <? function Scripts(){ ?> 
 	

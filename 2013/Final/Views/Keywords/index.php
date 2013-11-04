@@ -8,24 +8,51 @@
 	
 	
 	switch ($action) {
-		
-		case 'detail':
-			$model = Keywords::Get($_REQUEST['id']);
-			$view = 'details.php';
-			break;
 			
-		case 'new':
+			case 'new':
 			$model = Keywords::Blank();//Null Associative array
 			$view  = 'edit.php';
+			$title = "New Keyword:";
 			break;
+			
+		
+		case 'details':
+			$model = Keywords::Get($_REQUEST['id']);
+			$view = 'details.php';
+			$title = "Details: $model[Name]";
+			break;
+			
+		
 			
 		case 'edit':
 			
 			$model = Keywords::Get($_REQUEST['id']);
 			$view  = 'edit.php';
+			$title = "Edit: $model[Names]";
 			break;
+	
+		case 'save':
 			
-		case 'delete':
+			$errors = Keywords::Validate($_REQUEST);//Check validation if it is good
+			if(!$errors){
+				//Check for errors when saving
+				$errors = Keywords::Save($_REQUEST);//Save
+			}
+		
+			//If there are still no errrors then we redirect
+			if( !$errors){
+				
+				header("Location: ?");
+				die();//Kills preproccesor processing
+				//End after die	
+			}
+			//Only get here if there are errors
+			$model = $_REQUEST;//Repost previous entered data from post
+			$view = 'edit.php';
+			$title = "Save: $model[Names]";
+			break;	
+			
+			case 'delete':
 						
 			//Only triggered when a 'post' is sent
 			if(isset($_POST['id'])){
@@ -49,26 +76,6 @@
 			$view  = 'delete.php';			
 			$title = "Delete: $model[Names]" ;
 			break;
-				
-		case 'save':
-			
-			$errors = Keywords::Validate($_REQUEST);//Check validation if it is good
-			if(!$errors){
-				//Check for errors when saving
-				$errors = Keywords::Save($_REQUEST);//Save
-			}
-		
-			//If there are still no errrors then we redirect
-			if( !$errors){
-				
-				header("Location: ?");
-				die();//Kills preproccesor processing
-				//End after die	
-			}
-			//Only get here if there are errors
-			$model = $_REQUEST;//Repost previous entered data from post
-			$view = 'edit.php';
-			break;	
 					
 		default:
 			$model = Keywords::Get();

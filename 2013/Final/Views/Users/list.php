@@ -3,8 +3,8 @@
 <div class="container">
 	
 	<h2>Users</h2>
-	
-		<a class="glyphicon glyphicon-plus " href="?action=new&format=dialog" data-toggle="modal" data-target="#myModal">Add Contact</a>
+
+	<a class="glyphicon glyphicon-plus " href="?action=new&format=dialog" data-toggle="modal" data-target="#myModal">Add Contact</a>
 
 
 	<table class="table table-hover table-bordered table-striped">
@@ -15,8 +15,9 @@
 			<!-- Always match up th with td -->
 			<th>First Name</th>
 			<th>Last Name</th>
-			<th>Type</th>
-			<th></th>
+			<th>User Type</th>
+			<th>Facebook Id</th>
+			<th>Action</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -28,6 +29,8 @@
 				<td><?=$rs['FirstName']?></td>
 				<td><?=$rs['LastName']?></td>
 				<td><?=$rs['UserType']?></td>
+				<td><?=$rs['fbid']?></td>
+
 				<!-- Create links and buttons for each field/row-->
 				<td>
 					<a class ="glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>

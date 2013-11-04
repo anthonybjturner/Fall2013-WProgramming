@@ -31,30 +31,12 @@
 <?
 	$model_pages = array(
 		
-		'Addresses'=> array(
-			'url' =>'Views/Addresses',
-			'section' => 'AddressesModel',
-			'title' => 'Addresses'
-		),
-		
 		'Keywords'=> array(
 			'url' =>'Views/Keywords',
 			'section' => 'KeywordsModel',
 			'title' => 'Keywords'
 		),
-		
-		'Products'=> array(
-			'url' =>'Views/Products',
-			'section' => 'ProductsModel',
-			'title' => 'Products'
-		),
-		
-		'ProductsCategory'=> array(
-			'url' =>'Views/ProductsCategory',
-			'section' => 'ProductsCategoryModel',
-			'title' => 'Products Category'
-		),
-		
+
 		'Users'=> array(
 			'url' =>'Views/Users',
 			'section' => 'UsersModel',
@@ -67,6 +49,38 @@
 			'title' => 'Contact Methods'
 		),
 		
+		'Addresses'=> array(
+			'url' =>'Views/Addresses',
+			'section' => 'AddressesModel',
+			'title' => 'Addresses'
+		),
+		
+		'PhoneNumbers'=> array(
+			'url' =>'Views/PhoneNumbers',
+			'section' => 'PhoneNumbersModel',
+			'title' => 'PhoneNumbers'
+		),
+		
+		
+		'ProductKeywords'=> array(
+			'url' =>'Views/ProductKeywords',
+			'section' => 'Product Keywords Model',
+			'title' => 'Products Keywords'
+		),
+		
+		'ProductsCategory'=> array(
+			'url' =>'Views/ProductsCategory',
+			'section' => 'ProductsCategoryModel',
+			'title' => 'Products Category'
+		),
+		
+		'Products'=> array(
+			'url' =>'Views/Products',
+			'section' => 'ProductsModel',
+			'title' => 'Products'
+		),
+		
+
 		'OrdersItems'=> array(
 			'url' =>'Views/OrdersItems',
 			'section' => 'OrdersItemsModel',
@@ -77,12 +91,6 @@
 			'url' =>'Views/Orders',
 			'section' => 'OrdersModel',
 			'title' => 'Orders'
-		),
-		
-		'PhoneNumbers'=> array(
-			'url' =>'Views/PhoneNumbers',
-			'section' => 'PhoneNumbersModel',
-			'title' => 'PhoneNumbers'
 		),
 		
 		'Suppliers'=> array(

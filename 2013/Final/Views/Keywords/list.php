@@ -3,7 +3,7 @@
 <div class="container">
 	
 	<h2>Keywords</h2>
-	<a href="?action=new">Add Keyword</a>
+	<a href="?action=new&format=dialog" data-toggle="modal" data-target="#myModal">Add Keyword</a>
 	
 	<table class="table table-hover table-bordered table-striped table-condensed">
 		
@@ -13,14 +13,14 @@
 			<!-- Always match up th with td -->
 			<th>ID</th>
 			<th>User Type</th>
-			<th></th>
+			<th>Action</th>
 		</tr>
 		</thead>
 		
 		<tbody>
 			<? foreach ($model as $rs): ?>
 				<tr> 
-					<td ><?=$rs['id']?></td>
+					<td ><?=$rs['ParentId']?></td>
 					<td><?=$rs['Names']?></td>
 	
 					<!-- Create links and buttons for each field/row-->

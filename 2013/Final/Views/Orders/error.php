@@ -2,7 +2,7 @@
 	
 	
 		
-	<h3>Unable to delete <?= $model['OrdersItems_id']?></h3>
+	<h3>Unable to delete <?= $model['User_id']?></h3>
 	
 
 </div>

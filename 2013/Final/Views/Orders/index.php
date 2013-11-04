@@ -8,23 +8,25 @@
 	
 	switch ($action) {
 		
-		case 'detail':
-			$model = Orders::Get($_REQUEST['id']);
-			$view = 'details.php';
-			$title = "Details: $model[OrdersItems_id] $model[Addresses_id]";
-			break;
-			
+				
 		case 'new':
 			$model = Orders::Blank();//Null Associative array
 			$view  = 'edit.php';
 			$title = "Create new Order";
 			break;
 			
+		
+		case 'details':
+			$model = Orders::Get($_REQUEST['id']);
+			$view = 'details.php';
+			$title = "Details: $model[User_id] $model[Addresses_id]";
+			break;
+	
 		case 'edit':
 			
 			$model = Orders::Get($_REQUEST['id']);
 			$view  = 'edit.php';
-			$title = "Edit: $model[OrdersItems_id] $model[Addresses_id]";
+			$title = "Edit: $model[User_id] $model[Addresses_id]";
 			
 		break;
 			
@@ -47,7 +49,7 @@
 			//Only get here if there are errors
 			$model = $_REQUEST;//Repost previous entered data from post
 			$view = 'edit.php';
-			$title = "Edit: $model[OrdersItems_id] $model[Addresses_id]";
+			$title = "Edit: $model[User_id] $model[Addresses_id]";
 			
 			break;	
 			
@@ -72,7 +74,7 @@
 
 			$model = Orders::Get($_REQUEST['id']);
 			$view = 'delete.php';
-			$title = "Delete: $model[OrdersItems_id] $model[Addresses_id]";
+			$title = "Delete: $model[User_id] $model[Addresses_id]";
 			break;
 			
 					
@@ -83,6 +85,7 @@
 	}
 
 		switch ($format) {
+			
 			case 'dialog':
 				include '../Shared/_DialogLayout.php';
 				break;

@@ -12,7 +12,7 @@
 			
 			<!-- Always match up th with td -->
 			<th>Name</th>
-			<th></th>
+			<th>Action</th>
 		
 		</tr>
 		</thead>

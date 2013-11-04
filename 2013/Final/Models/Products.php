@@ -9,9 +9,9 @@ class Products {
 			
 		if(isset($id)){
 			
-			return fetch_one("SELECT * FROM 2013Fall_Products WHERE id=$id");//Double quotes takes the actual value of $id
+			return fetch_one("SELECT * FROM Products WHERE id=$id");//Double quotes takes the actual value of $id
 		}else{
-			return fetch_all('SELECT * FROM 2013Fall_Products');
+			return fetch_all('SELECT * FROM Products');
 		}
 		
 		return $ret;	
@@ -26,14 +26,16 @@ class Products {
 		
 		if($row['id']){//Update field if the returned value for the id is not null
 			
-			$sql = " UPDATE 2013Fall_Products "														//change to 2013Fall_Users_id
-			.		"	Set Price='$row2[Price]', Quantity='$row2[Quantity]', Suppliers_id1='$row2[Suppliers_id1]',	OrdersItems_id1='$row2[OrdersItems_id1]' "
+			$sql = " UPDATE Products "														//change to 2013Fall_Users_id
+			.		"	Set Name='$row2[Name]', Price='$row2[Price]', Description='$row2[Description]', Picture_Url='$row2[Picture_Url]',"
+			.		"	Suppliers_id='$row2[Suppliers_id]',	ProductsCategory_id='$row2[ProductsCategory_id]' "
 			.		"	WHERE id=$row[id]	";
 		}else{
 			
 			//Insert statement ( a new record )
-				$sql = " Insert Into 2013Fall_Products (Price, Quantity, Suppliers_id1, OrdersItems_id1) "
-                        .        " Values ('$row2[Price]', '$row2[Quantity]', '$row2[Suppliers_id1]', '$row2[OrdersItems_id1]') ";
+				$sql = " Insert Into Products (Name, Price, Description, Picture_Url, Suppliers_id,ProductsCategory_id) "
+                        .        " Values ('$row2[Name]' ,'$row2[Price]', '$row2[Description]', "
+                        .		 " '$row2[Picture_Url]', '$row2[Suppliers_id]', '$row2[ProductsCategory_id]') ";
 		}
 		
 		
@@ -53,21 +55,23 @@ class Products {
 	
 	static public function Blank(){
 				
-		return array('Price' => null, 'Quantity' => null , 'Suppliers_id1' => null, 'OrdersItems_id1' => null);
+		return array('id' => null, 'Name' => null, 'Price' => null, 'Description' => null , 'Picture_Url' => null,
+			 		 'Suppliers_id' => null, 'ProductsCategory_id' => null);
 		
 	}
 	
 	static public function Validate($row){
 
 		$errors = array();//Only one error per field
+		
+		if( !$row['Name'])$errors['Name'] = 'is required'; 	
 		if( !$row['Price'])$errors['Price'] = 'is required'; 	
 		if( !is_numeric($row['Price']))$errors['Price'] = 'must be a number';	
+		if( !$row['Suppliers_id'])$errors['Suppliers_id'] = 'is required';
+		if( !is_numeric($row['Suppliers_id']))$errors['Suppliers_id'] = 'must be a number';	
 		
-		if( !$row['Quantity'])$errors['Quantity'] = 'is required';
-		if( !is_numeric($row['Quantity']))$errors['Quantity'] = 'must be a number';
-	
-		if( !$row['Suppliers_id1'])$errors['Suppliers_id1'] = 'is required';
-		if( !$row['OrdersItems_id1'])$errors['OrdersItems_id1'] = 'id required';
+		if( !$row['ProductsCategory_id'])$errors['ProductsCategory_id'] = 'id required';
+		if( !is_numeric($row['ProductsCategory_id']))$errors['ProductsCategory_id'] = 'must be a number';	
 						
 		return count($errors) ? $errors : null;
 	}

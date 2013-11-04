@@ -1,11 +1,11 @@
 <div class="container">
 	
-	<h3>Are you sure you want to delete? <br><?= $model['User_id']?> <?=$model['Addresses_id']?></h3>
-
+	<h3>Are you sure you want to delete? <?= $model['ContactMethodType']?></h3>
+		
 	<form action="?action=delete" method="post">
-
+		
 		<input type="hidden" name="id" value="<?=$model['id']?>"/>
-		<input type="submit" value="Delete" class="btn btn-primary" />
+		<input type="submit" class="btn btn-primary" value="Yes" />
 		<a href="?action=?">
 			<button type="button" class="btn btn-default">
 				No
