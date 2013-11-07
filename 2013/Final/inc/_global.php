@@ -29,7 +29,7 @@ function fetch_all($sql){
 	$conn = GetConnection();
 	$result = $conn->query($sql);//Send a query with the given $sql statement/arguments
 	
-		echo $conn->error;
+	echo $conn->error;
 	
 	while( $rs = $result->fetch_assoc()){
 		

@@ -19,7 +19,7 @@
 		case 'details':
 			$model = Keywords::Get($_REQUEST['id']);
 			$view = 'details.php';
-			$title = "Details: $model[Name]";
+			$title = "Details: $model[Names]";
 			break;
 			
 		

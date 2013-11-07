@@ -8,19 +8,21 @@ class Keywords {
 
 	static public function Get($id=null){
 			
-		if(isset($id)){
+			
+		 if(isset($id)){
 			
 			return fetch_one("SELECT * FROM Keywords WHERE id=$id");//Double quotes takes the actual value of $id
 		}else{
 			return fetch_all('SELECT * FROM Keywords');
 		}
-
+		
 	}
+	
 	
 	static public function GetSelectListFor($id){
 			
 		
-		return fetch_all("SELECT id, Name FROM Keywords WHERE 'Type'=$id ");
+		return fetch_all("SELECT id, Names FROM Keywords WHERE `ParentId`=$id ");
 	
 	}
 	
@@ -32,13 +34,13 @@ class Keywords {
 		if($row['id']){
 			
 			$sql = " UPDATE Keywords "
-			.		"	Set id='$row2[id]', ParentId='$row2[ParentId]', Names='$row2[Names]' "
+			.		"	Set ParentId='$row2[ParentId]', Names='$row2[Names]' "
 			.		"	WHERE id=$row[id]	";
 		}else{
 			
 			//Insert statement ( a new record )
-				$sql = " Insert Into Keywords (id, ParentId, Names) "
-                        .        " Values ('$row2[id]', '$row2[ParentId]', '$row2[Names]') ";
+				$sql = " Insert Into Keywords (ParentId, Names) "
+                        .        " Values ('$row2[ParentId]', '$row2[Names]') ";
 		}
 						
         $conn->query($sql);//Insert the values from the associative array $row into the current connections database with the $sql variable

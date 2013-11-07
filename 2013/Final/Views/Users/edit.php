@@ -58,11 +58,11 @@
                 <div class="form-group <?=isset($errors['UserType']) ? 'has-error' : ''?>">
                         <label for="UserType" class="col-sm-2 control-label">User Type</label>
                         <div class="col-sm-10">
-                             <select name="UserType" id="UserType" class="form-control ">
+                             <select name="UserType" id="UserType" class="form-control">
 								<? foreach (Keywords::GetSelectListFor(2) as $keywordRs):?><!-- Used for restricting user types-->
 									
-									<!-- <option <? if($model['UserType'] == $keywordRs['id']){ ?> selected="selected"<? } ?> value="<?=$keywordRs['id']?>"> <?=$keywordRs['Name']?></option> -->
-									<option  value="<?=$keywordRs['id']?>"> <?=$keywordRs['Name']?></option>
+									<option <? if($model['UserType'] == $keywordRs['id']){ ?> selected="selected"<? } ?> value="<?=$keywordRs['id']?>"> <?=$keywordRs['Names']?></option>
+									<!-- <option  value="<?=$keywordRs['id']?>"><?=$keywordRs['Names']?></option> -->
 
 								<? endforeach; ?>
 							</select>

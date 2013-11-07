@@ -2,9 +2,9 @@
 
 <style>
 	
-	tr.success, tr.success td{
+	.table tr.success2, .table tr.success2 td{
 		
-		background-color: #00AA00;
+		background-color: #FFAA00;
 	}
 	
 </style>
@@ -15,13 +15,14 @@
 	
 	<? if(isset($_REQUEST['status']) && $_REQUEST['status'] == 'Saved'): ?>
 	
-		<div>
-			
+ 		<div class="alert alert-success">			
 			  <button type="button" class="close"  aria-hidden="true">&times;</button>
 			  <b>Success!</b> Your User has been saved.
 			
 		</div>
 	<? endif; ?>
+	
+	 
 
 	<a class="glyphicon glyphicon-plus " href="?action=new&format=dialog" data-toggle="modal" data-target="#myModal">Add Contact</a>
 
@@ -41,12 +42,11 @@
 		<tbody>
 		<? foreach ($model as $rs):?><!-- Get all the columns and fields from the model-->
 
-
-			<tr class=" <? $model['id'] == $_REQUEST['id'] ? 'success': ''  ?>"> <!-- Create columns for each field/row-->
-
+			<tr class=" <?= $rs['id']==$_REQUEST['id'] ? 'success' : '' ?> ">
+			
 				<td><?=$rs['FirstName']?></td>
 				<td><?=$rs['LastName']?></td>
-				<td><?=$rs['UserType']?></td>
+				<td><?=$rs['UserType_Name']?></td>
 				<td><?=$rs['fbid']?></td>
 
 				<!-- Create links and buttons for each field/row-->
@@ -69,21 +69,21 @@
 	<!-- View needs to be in a new layout with the javascript data -->
 	
 </div>
-
-<? function Scripts(){ ?> 
-	
-		<script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.min.js"></script>	
-		<script type="text/javascript">			
-			
-			$(function()){
-				
-				$(".table").dataTable();
-				$(".alert .close").click(function() {
-					
-					$(this).closest(".alert").slideUp();	
-					
-				});
-			})
-		</script>
-	
-<?	} ?>
+ <? function Scripts(){ ?>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.min.js"></script>
+        <script type="text/javascript">
+        $(function(){
+                $(".table").dataTable();
+                $(".alert .close").click(function(){
+                        $(this).closest(".alert").slideUp();
+                });
+                
+              $(".table tr").click(function(){
+              	
+              		$(this).toggleClass("success2");
+              	
+              });
+                
+        })
+        </script>
+<? } ?>

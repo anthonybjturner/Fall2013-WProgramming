@@ -7,33 +7,32 @@ class Users {
 	
 	static public function Get($id=null){
 			
-		if(isset($id)){
+		/*if(isset($id)){
 			
 			return fetch_one("SELECT * FROM Users WHERE id=$id");//Double quotes takes the actual value of $id
 		}else{
 			return fetch_all('SELECT * FROM Users');
-		}
+		}*/
 		
-		/**
-		 * if(isset($id)){
+		 if(isset($id)){
 			
-			$sql = "	SELECT U.*, K.Name as UserType_Name 
+			$sql = "	SELECT U.*, K.Names as UserType_Name 
 						FROM Users U
-							Join Keywords K ON U.'UserType'=K.id						
+							Join Keywords K ON U.`UserType`=K.id						
 						WHERE U.id=$id
 					";
 			
 			return fetch_one($sql);//Double quotes takes the actual value of $id
 		}else{
 			
-			$sql = "	SELECT U.*, K.Name as UserType_Name 
+			$sql = "	SELECT U.*, K.Names as UserType_Name 
 						FROM Users U
-							Join Keywords K ON U.'UserType'=K.id						
+							Join Keywords K ON U.`UserType`=K.id						
 					";
 			
 			return fetch_all($sql);
 		}
-		 */
+		 
 
 	}
 	

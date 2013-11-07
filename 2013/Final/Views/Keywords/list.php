@@ -20,7 +20,7 @@
 		<tbody>
 			<? foreach ($model as $rs): ?>
 				<tr> 
-					<td ><?=$rs['ParentId']?></td>
+					<td ><?=$rs['id']?></td>
 					<td><?=$rs['Names']?></td>
 	
 					<!-- Create links and buttons for each field/row-->
