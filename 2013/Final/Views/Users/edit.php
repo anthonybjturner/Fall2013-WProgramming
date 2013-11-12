@@ -61,8 +61,8 @@
                              <select name="UserType" id="UserType" class="form-control">
 								<? foreach (Keywords::GetSelectListFor(2) as $keywordRs):?><!-- Used for restricting user types-->
 									
-									<option <? if($model['UserType'] == $keywordRs['id']){ ?> selected="selected"<? } ?> value="<?=$keywordRs['id']?>"> <?=$keywordRs['Names']?></option>
-									<!-- <option  value="<?=$keywordRs['id']?>"><?=$keywordRs['Names']?></option> -->
+									<!-- <option <? if($model['UserType'] == $keywordRs['id']){ ?> selected="selected"<? } ?> value="<?=$keywordRs['id']?>"> <?=$keywordRs['Names']?></option> -->
+									<option  value="<?=$keywordRs['id']?>"><?=$keywordRs['Names']?></option>
 
 								<? endforeach; ?>
 							</select>
@@ -81,7 +81,7 @@
 
 <!-- Option two for displaying UserTypes for ID keywords-->
 <script type="text/javascript">
-	$(function()){
+	$(function(){
 		
 		$("#UserType").val(<?=$model['UserType']?>);
 		
