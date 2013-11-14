@@ -32,14 +32,28 @@ switch ($action) {
 		//If there are still no errrors then we redirect
 		if( !$errors){
 			
-            header("Location: ?status=Saved&id=$_REQUEST[id]");
-			die();//Kills preproccesor processing
-			//End after die	
+			if($format == 'plain'){//Used for AJAX call
+				
+				$view = 'item.php';
+				$rs = Users::Get($_REQUEST['id']);
+				
+			}else{
+				
+				//If the format is not plain, and is dialog or layout or nothing do this redirect
+				 header("Location: ?status=Saved&id=$_REQUEST[id]");
+				die();//Kills preproccesor processing
+				//End after die	
+			}
+			
+           
+		}else{
+			
+			//Only get here if there are errors
+			$model = $_REQUEST;
+			$view = 'edit.php';
+			$title = "Edit: $model[FirstName] $model[LastName]" ;
 		}
-		//Only get here if there are errors
-		$model = $_REQUEST;
-		$view = 'edit.php';
-		$title = "Edit: $model[FirstName] $model[LastName]" ;
+	
 		
 		break;
 
