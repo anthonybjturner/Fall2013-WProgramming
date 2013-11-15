@@ -45,7 +45,6 @@ switch ($action) {
 				//End after die	
 			}
 			
-           
 		}else{
 			
 			//Only get here if there are errors
@@ -53,8 +52,6 @@ switch ($action) {
 			$view = 'edit.php';
 			$title = "Edit: $model[FirstName] $model[LastName]" ;
 		}
-	
-		
 		break;
 
 	case 'edit':
@@ -64,7 +61,6 @@ switch ($action) {
 		$title = "Edit: $model[FirstName] $model[LastName]" ;
 		
 		break;
-		
 	case 'delete':
 		
 		if(isset($_POST['id'])){
@@ -80,7 +76,6 @@ switch ($action) {
 				break;	
 			}
 				
-			
 			header("Location: ?");
 				die();//Kills preproccesor processing
 				//End after die	
@@ -99,7 +94,6 @@ switch ($action) {
 		$title = 'Users';
 		break;
 }
-
 
 switch($format){
 	

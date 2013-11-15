@@ -70,6 +70,7 @@
         
 			        $(function(){
 			        	
+			        
 			                $(".table").dataTable();
 			                $(".alert .close").click(function(){
 			                        $(this).closest(".alert").slideUp();
