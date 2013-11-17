@@ -38,7 +38,9 @@
                 <div class="form-group <?=isset($errors['Users_id']) ? 'has-error' : ''?>">
                         <label for="Users_id" class="col-sm-2 control-label">User Id</label>
                         <div class="col-sm-10">
-                                <input type="text" name="Users_id" id="Users_id" placeholder="User id" class="form-control " value="<?=$model['Users_id']?>" />
+                        	                                
+                        	 <input type="Users_id" name="Users_id" id="Users_id" placeholder="Users id" class="form-control " value="<?=$model['Users_id']?>" />
+
                         </div>
                         <span><?=@$errors['Users_id']?></span>
                 </div>
@@ -46,10 +48,16 @@
                 <div class="form-group <?=isset($errors['AddressType']) ? 'has-error' : ''?>">
                         <label for="AddressType" class="col-sm-2 control-label">Address Type</label>
                         <div class="col-sm-10">
-                                <input type="text" name="AddressType" id="AddressType" placeholder="Address Type" class="form-control " value="<?=$model['AddressType']?>" />
-                        </div>
+                               
+                                <select name="AddressType" id="AddressType" class="form-control ">
+                                        <? foreach (Keywords::GetSelectListFor(7) as $keywordRs): ?>
+                                                <option value="<?=$keywordRs['id']?>"><?=$keywordRs['Name']?></option>
+                                        <? endforeach; ?>
+                                </select>    
+						</div>
                         <span><?=@$errors['AddressType']?></span>
                 </div>
+                
                 <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-10">
                                 <input type="submit" class="form-control btn btn-primary" value="Save" />
@@ -57,3 +65,9 @@
                 </div>
         </form>
 </div>
+
+<script type="text/javascript">
+        $(function(){
+                $("#Users_id").val(<?=$model['Users_id']?>);
+        })        
+</script>

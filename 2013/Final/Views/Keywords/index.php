@@ -19,7 +19,7 @@
 		case 'details':
 			$model = Keywords::Get($_REQUEST['id']);
 			$view = 'details.php';
-			$title = "Details: $model[Names]";
+			$title = "Details: $model[Name]";
 			break;
 			
 		
@@ -28,7 +28,7 @@
 			
 			$model = Keywords::Get($_REQUEST['id']);
 			$view  = 'edit.php';
-			$title = "Edit: $model[Names]";
+			$title = "Edit: $model[Name]";
 			break;
 	
 		case 'save':
@@ -49,7 +49,7 @@
 			//Only get here if there are errors
 			$model = $_REQUEST;//Repost previous entered data from post
 			$view = 'edit.php';
-			$title = "Save: $model[Names]";
+			$title = "Save: $model[Name]";
 			break;	
 			
 			case 'delete':
@@ -74,7 +74,7 @@
 			//Default call when no 'post' is sent
 			$model = Keywords::Get($_REQUEST['id']);
 			$view  = 'delete.php';			
-			$title = "Delete: $model[Names]" ;
+			$title = "Delete: $model[Name]" ;
 			break;
 					
 		default:

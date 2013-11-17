@@ -22,7 +22,7 @@ class Keywords {
 	static public function GetSelectListFor($id){
 			
 		
-		return fetch_all("SELECT id, Names FROM Keywords WHERE `ParentId`=$id ");
+		return fetch_all("SELECT id, Name FROM Keywords WHERE `Parents_id`=$id ");
 	
 	}
 	
@@ -34,13 +34,13 @@ class Keywords {
 		if($row['id']){
 			
 			$sql = " UPDATE Keywords "
-			.		"	Set ParentId='$row2[ParentId]', Names='$row2[Names]' "
+			.		"	Set Parents_id='$row2[Parents_id]', Name='$row2[Name]' "
 			.		"	WHERE id=$row[id]	";
 		}else{
 			
 			//Insert statement ( a new record )
-				$sql = " Insert Into Keywords (ParentId, Names) "
-                        .        " Values ('$row2[ParentId]', '$row2[Names]') ";
+				$sql = " Insert Into Keywords (Parents_id, Name) "
+                        .        " Values ('$row2[Parents_id]', '$row2[Name]') ";
 		}
 						
         $conn->query($sql);//Insert the values from the associative array $row into the current connections database with the $sql variable
@@ -76,16 +76,16 @@ class Keywords {
 	
 	static public function Blank(){
 				
-		return array('id'=> null, 'ParentId'=> null,'Names' => null);
+		return array('id'=> null, 'Parents_id'=> null,'Name' => null);
 		
 	}
 	
 	static public function Validate($row){
 
 		$errors = array();//Only one error per field
-		if( !$row['ParentId'])$errors['ParentId'] = 'is required'; 		
-		if( !$row['Names'])$errors['Names'] = 'is required';
-		if( !is_numeric($row['ParentId']))$errors['ParentId'] = 'must be a number';
+		if( !$row['Parents_id'])$errors['Parents_id'] = 'is required'; 		
+		if( !$row['Name'])$errors['Name'] = 'is required';
+		if( !is_numeric($row['Parents_id']))$errors['Parents_id'] = 'must be a number';
 				
 		return count($errors) ? $errors : null;
 	}

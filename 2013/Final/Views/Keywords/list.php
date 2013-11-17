@@ -21,7 +21,7 @@
 			<? foreach ($model as $rs): ?>
 				<tr> 
 					<td ><?=$rs['id']?></td>
-					<td><?=$rs['Names']?></td>
+					<td><?=$rs['Name']?></td>
 	
 					<!-- Create links and buttons for each field/row-->
 					<td>

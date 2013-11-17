@@ -7,35 +7,29 @@ class Users {
 	
 	static public function Get($id=null){
 			
-		/*if(isset($id)){
-			
-			return fetch_one("SELECT * FROM Users WHERE id=$id");//Double quotes takes the actual value of $id
-		}else{
-			return fetch_all('SELECT * FROM Users');
-		}*/
-		
 		 if(isset($id)){
-			
-			$sql = "	SELECT U.*, K.Names as UserType_Name 
-						FROM Users U
-							Join Keywords K ON U.`UserType`=K.id						
-						WHERE U.id=$id
-					";
-			
-			return fetch_one($sql);//Double quotes takes the actual value of $id
-		}else{
-			
-			$sql = "	SELECT U.*, K.Names as UserType_Name 
-						FROM Users U
-							Join Keywords K ON U.`UserType`=K.id						
-					";
-			
-			return fetch_all($sql);
-		}
-		 
-
+                        $sql = "        SELECT U.*, K.Name as UserType_Name
+                                                FROM Users U
+                                                        Join Keywords K ON U.`UserType`=K.id
+                                                WHERE U.id=$id
+                                        ";
+                        return fetch_one($sql);                        
+                }else{
+                        $sql = "        SELECT U.*, K.Name as UserType_Name
+                                                FROM Users U
+                                                        Join Keywords K ON U.`UserType`=K.id
+                                        ";
+                        return fetch_all($sql); 
+                }
 	}
 	
+	
+	static public function GetSelectListFor($id){
+			
+		
+		return fetch_all("SELECT FirstName, LastName FROM Users WHERE `id`=$id ");
+	
+	}
 	
 	static public function Save($row){
 		
@@ -46,13 +40,13 @@ class Users {
 			
 			$sql = " UPDATE Users "
 			.		"	Set FirstName='$row2[FirstName]', LastName='$row2[LastName]', Password='$row2[Password]',"
-			.		"   fbid='$row2[fbid]', UserType='$row2[UserType]' "
+			.		"   UserType='$row2[UserType]' "
 			.		"	WHERE id=$row[id]	";
 		}else{
 			
 			//Insert statement ( a new record )
-			$sql = " Insert Into Users (FirstName, LastName, Password, fbid, UserType) "
-            .      " Values ('$row2[FirstName]', '$row2[LastName]', '$row2[Password]','$row2[fbid]', '$row2[UserType]') ";
+			$sql = " Insert Into Users (FirstName, LastName, Password, UserType) "
+            .      " Values ('$row2[FirstName]', '$row2[LastName]', '$row2[Password]', '$row2[UserType]') ";
 		}
 				
         $conn->query($sql);//Insert the values from the associative array $row into the current connections database with the $sql variable
@@ -86,7 +80,7 @@ class Users {
 	
 	static public function Blank(){
 				
-		return array('id'=> null, 'FirstName' => null , 'LastName' => null, 'Password' => null, 'fbid' => null, 'UserType' => null);
+		return array('id'=> null, 'FirstName' => null , 'LastName' => null, 'Password' => null, 'UserType' => null);
 		
 	}
 	

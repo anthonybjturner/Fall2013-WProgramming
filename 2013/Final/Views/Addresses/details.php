@@ -17,7 +17,7 @@
 	<dd><?=$model['Users_id']?>    </dd>
 	
 	<dt>AddressType</dt>
-	<dd><?=$model['AddressType']?>    </dd>
+	<dd><?=$model['AddressType_Name']?>    </dd>
 
 </dl>
 </div>

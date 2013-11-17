@@ -14,19 +14,19 @@
                 
                 <input type="hidden" name="id" value="<?=$model['id']?>" />
                 
-                <div class="form-group <?=isset($errors['ParentId']) ? 'has-error' : ''?>">
-                        <label for="ParentId" class="col-sm-2 control-label">Parent Id</label>
+                <div class="form-group <?=isset($errors['Parents_id']) ? 'has-error' : ''?>">
+                        <label for="Parents_id" class="col-sm-2 control-label">Parent Id</label>
                         <div class="col-sm-10">
-                                <input type="text" name="ParentId" id="ParentId" placeholder="Parent Id" class="form-control " value="<?=$model['ParentId']?>" />
+                                <input type="text" name="Parents_id" id="Parents_id" placeholder="Parent Id" class="form-control " value="<?=$model['Parents_id']?>" />
                         </div>
-                        <span><?=@$errors['ParentId']?></span>
+                        <span><?=@$errors['Parents_id']?></span>
                 </div>
-                <div class="form-group <?=isset($errors['Names']) ? 'has-error' : ''?>">
-                        <label for="Names" class="col-sm-2 control-label">Names</label>
+                <div class="form-group <?=isset($errors['Name']) ? 'has-error' : ''?>">
+                        <label for="Name" class="col-sm-2 control-label">Name</label>
                         <div class="col-sm-10">
-                                <input type="text" name="Names" id="Names" placeholder="Name" class="form-control " value="<?=$model['Names']?>" />
+                                <input type="text" name="Name" id="Name" placeholder="Name" class="form-control " value="<?=$model['Name']?>" />
                         </div>
-                        <span><?=@$errors['Names']?></span>
+                        <span><?=@$errors['Name']?></span>
                 </div>
 
                 <div class="form-group">

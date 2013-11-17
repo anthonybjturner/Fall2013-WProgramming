@@ -1,6 +1,6 @@
 <div class="container">
 	
-	<h3>Are you sure you want to delete? <?= $model['Names']?></h3>
+	<h3>Are you sure you want to delete? <?= $model['Name']?></h3>
 		
 	<form action="?action=delete" method="post">
 		

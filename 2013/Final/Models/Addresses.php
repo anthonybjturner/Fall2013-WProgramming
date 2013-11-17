@@ -9,14 +9,27 @@ class Addresses {
 			
 		if(isset($id)){
 			
-			return fetch_one("SELECT * FROM Addresses WHERE id=$id");//Double quotes takes the actual value of $id
+
+            $sql = "        SELECT A.*, K.Name as AddressType_Name
+                                    FROM Addresses A
+                                            Join Keywords K ON A.`AddressType`=K.id
+                                    WHERE A.id=$id
+                            ";
+            return fetch_one($sql);                        
+               
 		}else{
-			return fetch_all('SELECT * FROM Addresses');
+			 $sql = "        SELECT A.*, K.Name as AddressType_Name
+                                                FROM Addresses A
+                                                        Join Keywords K ON A.`AddressType`=K.id
+                                        ";
+                        return fetch_all($sql); 
 		}
 		
 		return $ret;	
 		
 	}
+	
+	 
 	
 	
 	static public function Delete($id){

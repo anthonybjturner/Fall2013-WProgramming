@@ -5,59 +5,103 @@
 	<h2>Addresses</h2>	
 	<a href="?action=new&format=dialog" data-toggle="modal" data-target="#myModal">Add Address</a>
 	
-	<table class="table table-hover table-bordered table-striped table-condensed">
-		
-		<thead>
-		<tr>
+	
+	<div id="table-wrapper" class="col-md-12">
+
+		<table class="table table-hover table-bordered table-striped table-condensed">
 			
-			<!-- Always match up th with td -->
-			<th>City</th>
-			<th>State</th>
-			<th>Zipcode</th>
-			<th>User ID</th>
-			<th>Address Type</th>
-			<th>Action</th>
-
-		</tr>
-		</thead>
-		<tbody>
-		<? foreach ($model as $rs): ?>
-
-			<tr> 
-				<td><?=$rs['City']?></td>
-				<td><?=$rs['State']?></td>
-				<td><?=$rs['Zipcode']?></td>
-				<td><?=$rs['Users_id']?></td>
-				<td><?=$rs['AddressType']?></td>
-				
-				
-				<td>
-					<a class ="glyphicon glyphicon-file" href="?action=details&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
-					<a class ="glyphicon glyphicon-pencil" href="?action=edit&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
-					<a class ="glyphicon glyphicon-trash" href="?action=delete&id=<?=$rs['id']?>&format=dialog" data-toggle="modal" data-target="#myModal"></a>
-				</td>
-				
-
+			<thead>
+				<tr>
+					
+					<!-- Always match up th with td -->
+					<th>City</th>
+					<th>State</th>
+					<th>Zipcode</th>
+					<th>User ID</th>
+					<th>Address Type</th>
+					<th>Action</th>
+	
 			</tr>
+			
+			</thead>
+			
+			<tbody>
+				
+				<? foreach ($model as $rs): ?>
 		
-		<? endforeach; ?>
-	
-		</tbody>
-	</table>
+					<? include 'item.php'; ?>
+				
+				<? endforeach ?>
+		
+			</tbody>
+		</table>	
+	</div>
+	<!-- Holds details for each table's record -->
+	<div id="details" class="col-md-6"></div>
 </div>
 
-<div class="modal fade" id="myModal">
-	<!-- View needs to be in a new layout with the javascript data -->
+	
+	
+</div> <!--  End container-->
+	
+<div id="myModal" class="modal fade">
 	
 </div>
-
 
 
 <? function Scripts(){ ?> 
 	
-		<script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.min.js"></script>	
-		<script type="text/javascript">			
-			$(".table").dataTable();
-		</script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.min.js"></script>
+        <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+        <script type="text/javascript">
+        
+        $(function(){
+                $(".table").dataTable();
+               
+                $(".alert .close").click(function(){
+                        $(this).closest(".alert").slideUp();
+                });
+                
+           
+                $(".table a").click(function(){
+                        
+                        
+                        if($(this).closest("tr").hasClass("success")){
+                                $(".success").removeClass("success");//Toggles highlighting
+                                $("#table-wrapper").removeClass("col-md-6").addClass("col-md-12");
+                                $("#details").html('');                        
+                        }else{
+                                $(".success").removeClass("success");
+                                $(this).closest("tr").addClass("success");
+                                $("#table-wrapper").removeClass("col-md-12").addClass("col-md-6");
+                                
+                                $("#details").load(this.href, {format: "plain"}, function(){
+                                        $("#details form").submit(HandleSubmit);                                        
+                                });                                
+                        }
+                        
+                        return false;
+                });
+                
+                var HandleSubmit = function (){
+                	
+					var data = $(this).serializeArray();
+					data.push({name:'format', value:'plain'});
+					//event.preventDefault();
+					$.post(this.action, data, function(results){
+						
+						 //console.log(results);
+						
+						if($(results).find("form").length){
+							$("#details").html(results);					
+						}else{
+							$(".success").html($(results).html())
+						}
+					});
+			
+					return false;
+				}		
+        })
+        </script>
 	
 <?	} ?>

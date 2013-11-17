@@ -54,24 +54,40 @@
 			break;
 			
 		case 'save':
-			
+
 			$errors = Addresses::Validate($_REQUEST);//Check validation if it is good
+			
 			if(!$errors){
 				//Check for errors when saving
 				$errors = Addresses::Save($_REQUEST);//Save
+				//print_r($_REQUEST);
 			}
 		
 			//If there are still no errrors then we redirect
 			if( !$errors){
 				
-				header("Location: ?");
-				die();//Kills preproccesor processing
-				//End after die	
+				//print_r();
+
+				if($format == 'plain' ){
+						
+					$view = 'item.php';
+					//print_r($view);
+					$rs = Addresses::Get($_REQUEST['id']);
+					//print_r($rs);
+				}else{
+						header("Location: ?status=Saved&id=$_REQUEST[id]");
+						die();				
+				}
+				
+			}else{
+				
+				//Only get here if there are errors
+				$model = $_REQUEST;//Repost previous entered data from post
+				$view = 'edit.php';
+				$title = "Save: $model[City] $model[State]" ;
+				
 			}
-			//Only get here if there are errors
-			$model = $_REQUEST;//Repost previous entered data from post
-			$view = 'edit.php';
-			$title = "Save: $model[City] $model[State]" ;
+			
 			break;	
 					
 		default:
@@ -85,6 +101,10 @@ switch($format){
 	
 	case 'dialog':
 		include '../Shared/_DialogLayout.php';
+		break;
+		
+	case 'plain':
+		include $view;
 		break;
 		
 	default: 

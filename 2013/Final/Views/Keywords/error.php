@@ -2,7 +2,7 @@
 	
 	
 	<pre> print_r($errors);</pre>	
-	<h3>Unable to delete <?= $model['Names']?></h3>
+	<h3>Unable to delete <?= $model['Name']?></h3>
 	
 	
 	<?

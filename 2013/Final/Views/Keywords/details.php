@@ -8,7 +8,7 @@
 	<dd><?=$model['id']?>    </dd>
 
 	<dt>Name</dt>
-	<dd><?=$model['Names']?>    </dd>
+	<dd><?=$model['Name']?>    </dd>
 
 	
 
