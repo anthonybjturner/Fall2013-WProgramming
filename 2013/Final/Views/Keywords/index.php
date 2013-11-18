@@ -38,20 +38,30 @@
 				//Check for errors when saving
 				$errors = Keywords::Save($_REQUEST);//Save
 			}
-		
-			//If there are still no errrors then we redirect
+			
+			
 			if( !$errors){
 				
-				header("Location: ?");
-				die();//Kills preproccesor processing
-				//End after die	
+				if($format=='plain'){
+					
+					$view = 'item.php';
+					$rs = Keywords::Get($_REQUEST['id']);
+				}else{
+					
+					header("?status=Saved&id=$_REQUEST[id]");
+					die();//Kills preproccesor processing
+					//End after die	
+				}
+				
+			}else{
+				
+				//Only get here if there are errors
+				$model = $_REQUEST;//Repost previous entered data from post
+				$view = 'edit.php';
+				$title = "Save: $model[Name]";
 			}
-			//Only get here if there are errors
-			$model = $_REQUEST;//Repost previous entered data from post
-			$view = 'edit.php';
-			$title = "Save: $model[Name]";
-			break;	
 			
+			break;	
 			case 'delete':
 						
 			//Only triggered when a 'post' is sent
@@ -87,6 +97,10 @@
 		
 		case 'dialog':
 			include '../Shared/_DialogLayout.php';
+			break;
+			
+		case 'plain':
+			include $view;
 			break;
 		
 		default:
