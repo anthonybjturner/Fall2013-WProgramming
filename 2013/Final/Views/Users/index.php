@@ -3,6 +3,7 @@ include_once '../../inc/_global.php';
 
 @$action = $_REQUEST['action'];
 @$format = $_REQUEST['format'];
+$errors = null;
 
 switch ($action) {
 	
@@ -25,9 +26,10 @@ switch ($action) {
 			$errors = Users::Save($_REQUEST);			
 		}
 		if(!$errors){
-			if($format == 'plain' ){
+			if($format == 'plain' || $format == 'json' ){
 				$view = 'item.php';
-				$rs = Users::Get($_REQUEST['id']);
+				$rs = $model = Users::Get($_REQUEST['id']);
+				
 			}else{
 				header("Location: ?status=Saved&id=$_REQUEST[id]");
 				die();				
@@ -72,6 +74,9 @@ switch ($format) {
 		
 	case 'plain':
 		include $view;
+		break;
+	case 'json':
+		echo json_encode(array('model'=> $model, 'errors'=> $errors));//PHP Objects into Javascript objects
 		break;
 	
 	default:

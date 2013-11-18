@@ -1,4 +1,15 @@
 <link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" />
+<style>
+	.table tr.success,	.table tr.success td{
+		background-color: #66FF66 !important;
+	}
+	#table-wrapper{
+		transition: width .5s;
+		-webkit-transition: width .5s; 
+
+	}
+</style>
+
 
 <div class="container">
 	
