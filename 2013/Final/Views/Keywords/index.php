@@ -5,6 +5,7 @@
 
 	@$action = $_REQUEST['action'];//Merges together the GET and POST
 	@$format = $_REQUEST['format'];//Merges together the GET and POST
+	$errors = null;
 	
 	
 	switch ($action) {
@@ -21,8 +22,6 @@
 			$view = 'details.php';
 			$title = "Details: $model[Name]";
 			break;
-			
-		
 			
 		case 'edit':
 			
@@ -42,10 +41,10 @@
 			
 			if( !$errors){
 				
-				if($format=='plain'){
+				if($format=='plain' || $format == 'json'){
 					
 					$view = 'item.php';
-					$rs = Keywords::Get($_REQUEST['id']);
+					$rs = $model = Keywords::Get($_REQUEST['id']);
 				}else{
 					
 					header("?status=Saved&id=$_REQUEST[id]");
@@ -102,6 +101,11 @@
 		case 'plain':
 			include $view;
 			break;
+		
+			
+	case 'json':
+		echo json_encode(array('model'=> $model, 'errors'=> $errors));
+		break;
 		
 		default:
 			include '../Shared/_Layout.php';

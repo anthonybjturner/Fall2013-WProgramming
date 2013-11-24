@@ -23,6 +23,13 @@ class Users {
                 }
 	}
 	
+	static public function GetUser($username){
+
+		$sql = "SELECT FirstName, LastName From Users WHERE FirstName='$username' ";
+		echo $sql;
+            return fetch_one($sql);                        
+	}
+	
 	
 	static public function GetSelectListFor($id){
 			

@@ -4,62 +4,42 @@
 	.table tr.success2, .table tr.success2 td{
 		background-color: #00FF00 !important; 
 	}
-	#table-wrapper{
-		transition: width .5s;
-		-webkit-transition: width .5s;
-	}
+	
+	body { padding-top: 70px; }
+    	
+    	#main-content{
+    		
+    	
+    	}
+    	.container img {
+    		
+    		max-height:	100%; 
+    		max-width:	100%;
+    	}
 </style>
+
 <div class="container">
 	
-	<h2>Users</h2>
+	<div class="jumbotron">
+			    
+ 	    <h2><?=$title?></h2>
+
+  	</div><!-- End container -->
 	
-	<!-- Triggered when saving -->
-	<? if(isset($_REQUEST['status']) && $_REQUEST['status'] == 'Saved'): ?>
-		<div class="alert alert-success">
-			<button type="button" class="close" aria-hidden="true">&times;</button>
-			<b>Success!</b> Your User has been saved.
-		</div>
-	<? endif; ?>
 	
-	<a href="?action=new" id="add-link" >Add Contact</a>
-	
-	<div id="table-wrapper" class="col-md-12">
-		<table class="table table-hover table-bordered table-striped">
-			<thead>
-				<tr>
-					<th>First Name</th>
-					<th>Last Name</th>
-					<th>Type</th>
-					<th>Action</th>
-				</tr>
-			</thead>
-			<tbody>
-			</tbody>
-		</table>
+			
+	<div id="main-content">
+
+		<img src="Resources/images/anime-onnana.jpg"> </img>
+
 	</div>
+			  
+ 	
+	
 	<div id="details" class="col-md-6"></div>
 </div>
 
 <div id="myModal" class="modal fade"></div>
-
-<script id="row-template" type="text/x-handlebars-template">
-		<td>{{FirstName}}</td>
-		<td>{{LastName}}</td>
-		<td>{{UserType_Name}}</td>
-		<td>
-			<a class="glyphicon glyphicon-file" href="?action=details&id={{id}}" ></a>
-			<a class="glyphicon glyphicon-pencil" href="?action=edit&id={{id}}" ></a>
-			<a class="glyphicon glyphicon-trash" href="?action=delete&id={{id}}" ></a>
-		</td>
-</script>
-
-<script id="tbody-template" type="text/x-handlebars-template">
-	{{#each .}}
-		<tr>
-			{{> row-template}}
-		</tr>
-	{{/each}}
-</script>
 
   <? function Scripts(){ ?>
   	<? global $model; ?>
@@ -70,13 +50,6 @@
 	<script type="text/javascript">
 	$(function(){
 		var curDialogAction = null;
-		var templateRow = Handlebars.compile($("#row-template").html());
-		Handlebars.registerPartial("row-template", templateRow);				
-		var tableTemplate = Handlebars.compile($("#tbody-template").html());
-							
-		$(".table tbody").html(tableTemplate(<?=json_encode($model);?>))	
-		
-		$(".table").dataTable();
 		
 		$(".alert .close").click(function(){
 			$(this).closest(".alert").slideUp();
@@ -89,7 +62,7 @@
 			return false;
 		});
 		
-		$(".table a").click(function(){
+		$("#main-content a").click(function(){
 			
 			if($(this).closest("tr").hasClass("success2")){
 				HideDialog();
@@ -164,15 +137,3 @@
 	})
 	</script>
 <? } ?>
-
-
-
-
-
-
-
-
-
-
-
-

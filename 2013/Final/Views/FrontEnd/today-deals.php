@@ -11,17 +11,16 @@
 </style>
 <div class="container">
 	
-	<h2>Users</h2>
+	<h2>Todays Deals</h2>
 	
 	<!-- Triggered when saving -->
 	<? if(isset($_REQUEST['status']) && $_REQUEST['status'] == 'Saved'): ?>
 		<div class="alert alert-success">
 			<button type="button" class="close" aria-hidden="true">&times;</button>
-			<b>Success!</b> Your User has been saved.
+			
 		</div>
 	<? endif; ?>
 	
-	<a href="?action=new" id="add-link" >Add Contact</a>
 	
 	<div id="table-wrapper" class="col-md-12">
 		<table class="table table-hover table-bordered table-striped">
@@ -42,24 +41,7 @@
 
 <div id="myModal" class="modal fade"></div>
 
-<script id="row-template" type="text/x-handlebars-template">
-		<td>{{FirstName}}</td>
-		<td>{{LastName}}</td>
-		<td>{{UserType_Name}}</td>
-		<td>
-			<a class="glyphicon glyphicon-file" href="?action=details&id={{id}}" ></a>
-			<a class="glyphicon glyphicon-pencil" href="?action=edit&id={{id}}" ></a>
-			<a class="glyphicon glyphicon-trash" href="?action=delete&id={{id}}" ></a>
-		</td>
-</script>
 
-<script id="tbody-template" type="text/x-handlebars-template">
-	{{#each .}}
-		<tr>
-			{{> row-template}}
-		</tr>
-	{{/each}}
-</script>
 
   <? function Scripts(){ ?>
   	<? global $model; ?>

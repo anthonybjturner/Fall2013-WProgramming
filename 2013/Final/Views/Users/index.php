@@ -3,10 +3,10 @@ include_once '../../inc/_global.php';
 
 @$action = $_REQUEST['action'];
 @$format = $_REQUEST['format'];
+
 $errors = null;
 
 switch ($action) {
-	
 	case 'details':
 		$model  = Users::Get($_REQUEST['id']);
 		$view 	= 'details.php';
@@ -14,7 +14,6 @@ switch ($action) {
 		break;
 		
 	case 'new':
-		
 		$model = Users::Blank();
 		$view 	= 'edit.php';		
 		$title	= "Create New User"	;	
@@ -26,7 +25,7 @@ switch ($action) {
 			$errors = Users::Save($_REQUEST);			
 		}
 		if(!$errors){
-			if($format == 'plain' || $format == 'json' ){
+			if($format == 'plain' || $format == 'json'){
 				$view = 'item.php';
 				$rs = $model = Users::Get($_REQUEST['id']);
 				
@@ -42,7 +41,7 @@ switch ($action) {
 		break;
 		
 	case 'edit':
-		$model  = Users::Get($_REQUEST['id']);//Get the row/record based on the id 
+		$model  = Users::Get($_REQUEST['id']);
 		$view 	= 'edit.php';		
 		$title	= "Edit: $model[FirstName] $model[LastName]"	;	
 		break;
@@ -75,8 +74,9 @@ switch ($format) {
 	case 'plain':
 		include $view;
 		break;
+		
 	case 'json':
-		echo json_encode(array('model'=> $model, 'errors'=> $errors));//PHP Objects into Javascript objects
+		echo json_encode(array('model'=> $model, 'errors'=> $errors));
 		break;
 	
 	default:

@@ -4,6 +4,7 @@
 	
 	@$action = $_REQUEST['action'];//Merges together the GET and POST
 	@$format = $_REQUEST['format'];//Merges together the GET and POST
+	$errors = null;
 	
 	switch ($action) {
 		
@@ -68,11 +69,11 @@
 				
 				//print_r();
 
-				if($format == 'plain' ){
+				if($format == 'plain' || $format == 'json'){
 						
 					$view = 'item.php';
 					//print_r($view);
-					$rs = Addresses::Get($_REQUEST['id']);
+					$rs = $model = Addresses::Get($_REQUEST['id']);
 					//print_r($rs);
 				}else{
 						header("Location: ?status=Saved&id=$_REQUEST[id]");
@@ -105,6 +106,10 @@ switch($format){
 		
 	case 'plain':
 		include $view;
+		break;
+		
+	case 'json':
+		echo json_encode(array('model'=> $model, 'errors'=> $errors));
 		break;
 		
 	default: 
