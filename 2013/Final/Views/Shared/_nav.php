@@ -41,7 +41,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="index.php">Amazoff</a>
+				<a class="navbar-brand" href="../../index.php">Amazoff</a>
 				
 			</div>
 				
@@ -62,34 +62,33 @@
 						
 					<? endforeach; ?>
 					
-					
 					<li class="dropdown">
 		      			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Departments <b class="caret"></b></a>
 		      			  <ul class="dropdown-menu">
 		      			  	
-								<? foreach($model_pages as $name => $data): ?>
+								<? foreach($model_cat as $name => $data): ?>
 									
-									<li class="<?=$data['section']?>">
+									<li class="<?=$data['Name']?>">
 										
-										<a href="<?=$data['url']?>"?action=details>
-											<?=$data['title'] ?> 
+										<a href="<?=$data['Name']?>"?action=details>
+											<?=$data['Name'] ?> 
 										</a>
 									</li>
 			
 							<? endforeach; ?>
-
 		        		</ul>
 		      		</li>
 				</ul>
-				<p class="navbar-text pull-right"> Hello <a href="?action=signin&format=" class="navbar-link">
+				<p class="navbar-text pull-right"> <a href="?action=signin" class="navbar-link">
 
-							 <?=$login == null ? "Sign in" : "Signed in as ".$login?> 
+						<?=$login == null ? "Sign in " : "Signed in as ".$login ?> 
 					</a>
 				</p>
-
+				
+				<p class="navbar-text pull-right"> <a href="?action=shopping-cart" class="glyphicon glyphicon-shopping-cart"> Cart
+					</a>
+				</p>
 			</div>
 		</div>
 	</div>
 	<!-- End navbar-->
-	
-

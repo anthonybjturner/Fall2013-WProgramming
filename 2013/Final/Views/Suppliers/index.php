@@ -86,6 +86,7 @@
 				break;
 			
 			default:
+				$model_cat=	ProductsCategory::Get();
 				include '../Shared/_Layout.php';
 				break;
 		}

@@ -54,6 +54,13 @@
 					
 				</ul>
 				
+				<p class="navbar-text pull-right"> Admin <a href="?action=signin&type=admin" class="navbar-link">
+
+							 <?=$login == null ? "Sign in" : "Signed in as ".$login?> 
+					</a>
+				</p>
+
+				
 			</div>
 		</div>
 	</div>
