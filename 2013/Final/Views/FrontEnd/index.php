@@ -29,6 +29,7 @@ switch ($action) {
 		
 	case 'contact':
 		
+		$model = Users::Blank();
 		$view 	= 'contact.php';			
 		$title	= "Contact";	
 		break;
@@ -101,6 +102,14 @@ switch ($action) {
 		$view 	= 'list.php';
 		$title	= "Welcome back ".$login;	
 		break;
+		
+	case 'send-email':
+		
+		//$errors = Users::Validate($_REQUEST);
+		$view 	= 'list.php';
+		$title	= "Sent email";	
+		break;
+	
 	
 	default:
 		$model  = Users::Get();

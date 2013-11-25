@@ -11,7 +11,7 @@
 </style>
 <div class="container">
 	
-	<h2>Contact</h2>
+	<h2>Contact Us:</h2>
 	
 	<!-- Triggered when saving -->
 	<? if(isset($_REQUEST['status']) && $_REQUEST['status'] == 'Saved'): ?>
@@ -22,22 +22,48 @@
 	<? endif; ?>
 	
 	
-	<div id="table-wrapper" class="col-md-12">
-		<table class="table table-hover table-bordered table-striped">
-			<thead>
-				<tr>
-					<th>First Name</th>
-					<th>Last Name</th>
-				</tr>
-			</thead>
-			<tbody>
-			</tbody>
-		</table>
-	</div>
-	<div id="details" class="col-md-6"></div>
-</div>
+	<form action="?action=send-email" method="post"  class="form-horizontal row">
+		<input type="hidden" name="id" value="<?=$model['id']?>" />
+		
+		<div class="form-group <?=isset($errors['FirstName']) ? 'has-error' : ''?>">
+			<label for="FirstName" class="col-sm-2 control-label">First Name</label>
+			<div class="col-sm-10">
+				<input type="text" name="FirstName" id="FirstName" placeholder="First Name" class="form-control " value="<?=$model['FirstName']?>"  />
+			</div>
+			<span><?=@$errors['FirstName']?></span>
+		</div>
+		
+		<div class="form-group <?=isset($errors['LastName']) ? 'has-error' : ''?>">
+			<label for="LastName" class="col-sm-2 control-label">Last Name</label>
+			<div class="col-sm-10">
+				<input type="text" name="LastName" id="LastName" placeholder="Last Name" class="form-control " value="<?=$model['LastName']?>"  />
+			</div>
+			<span><?=@$errors['LastName']?></span>
+		</div>
+		
+		<div class="form-group">
+			<label for="Email" class="col-sm-2 control-label">Email</label>
+			<div class="col-sm-10">
+				<input type="text" name="Email" id="Email" placeholder="Email" class="form-control " value=""  />
+			</div>
+		</div>
+		
+		<div class="form-group">
 
-<div id="myModal" class="modal fade"></div>
+			<label for="Message" class="col-sm-2 control-label">Message</label>
+			<div class="col-sm-10">
+					<textarea name="messsage" rows="7" cols="30" id="message" class="form-control ">
+					</textarea>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10">
+				<input type="submit" class="form-control btn btn-primary" value="Send" />
+			</div>
+		</div>
+	</form>
+</div>
 
 
 

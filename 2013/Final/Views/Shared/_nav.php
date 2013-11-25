@@ -69,8 +69,9 @@
 								<? foreach($model_cat as $name => $data): ?>
 									
 									<li class="<?=$data['Name']?>">
-										
-										<a href="<?=$data['Name']?>"?action=details>
+										<!-- Generate a url, removing white space and putting link to lower case-->
+										<a href="<?= str_replace(" ", "-", strtolower( $data['Name'] )) ?>.php" >
+											
 											<?=$data['Name'] ?> 
 										</a>
 									</li>
