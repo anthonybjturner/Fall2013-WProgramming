@@ -2,31 +2,8 @@
     	
     	<div class="container">
 
-   			 	footer
-   		</div>
-</div>
-
-<?
-	$pages = array(
-		
-		'about'=> array(
-			'url' =>'about.php',
-			'section' => 'about',
-			'title' => 'About'
-		),
-		'contact'=> array(
-			'url' => 'contact.php',
-			'section' => 'contact',
-			'title' => 'Contact'
-		)
-	);
-?>
-    
-    <div class="navbar navbar-inverse navbar-fixed-bottom" role="navigation">
-    	
-    	<div class="container">
-
-   			 <div class="navbar-header">
+   			 	
+   		 <div class="navbar-header">
 				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".nav-c">
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
@@ -63,7 +40,23 @@
 				
 			</div>
 		</div>
-	</div>
-	<!-- End navbar-->
-	
+</div>
+
+<?
+	$pages = array(
+		
+		'about'=> array(
+			'url' =>'about.php',
+			'section' => 'about',
+			'title' => 'About'
+		),
+		'contact'=> array(
+			'url' => 'contact.php',
+			'section' => 'contact',
+			'title' => 'Contact'
+		)
+	);
+?>
+    
+    
 
