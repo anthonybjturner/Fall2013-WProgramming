@@ -87,8 +87,15 @@ switch($format){
 		include '../Shared/_DialogLayout.php';
 		break;
 		
+	case 'plain':
+		include $view;
+		break;
+		
+	case 'json':
+		echo json_encode(array('model'=> $model, 'errors'=> $errors));
+		break;
+		
 	default: 
-		$model_cat=	ProductsCategory::Get();
 		include '../Shared/_Layout.php';
 		break;
 

@@ -41,7 +41,7 @@
                  <div class="form-group <?=isset($errors['Picture_Url']) ? 'has-error' : ''?>">
                         <label for="Picture_Url" class="col-sm-2 control-label">Picture url</label>
                         <div class="col-sm-10">
-                                <input type="text" name="Picture_Url" id="Picture_Url" placeholder="Picture_Url" class="form-control " value="<?=$model['Picture_Url']?>" />
+                                <input type="text" name="Picture_Url" id="Picture_Url" placeholder="Picture Url" class="form-control " value="<?=$model['Picture_Url']?>" />
                         </div>
                         <span><?=@$errors['Picture_Url']?></span>
                 </div>

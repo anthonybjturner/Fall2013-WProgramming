@@ -11,28 +11,55 @@
 			'url' =>'Views/Products',
 			'section' => 'ProductsModel',
 			'title' => 'Products'
-		)
-	);
-?>
-
-<?
-	$pages = array(
-		
-		'today-deals'=> array(
-			'url' =>'today-deals.php',
-			'section' => 'today-deals',
-			'title' => 'Todays deals'
 		),
-		'wishlist'=> array(
-			'url' => 'wishlist.php',
-			'section' => 'wishlist',
-			'title' => 'Wishlist'
+		
+		'Addresses'=> array(
+			'url' =>'Views/Addresses',
+			'section' => 'AddressesModel',
+			'title' => 'Addresses'
+		),
+		'ContactMethods'=> array(
+			'url' =>'Views/ContactMethods',
+			'section' => 'ContactMethodsModel',
+			'title' => 'ContactMethods'
+		),
+		'Keywords'=> array(
+			'url' =>'Views/Keywords',
+			'section' => 'KeywordsModel',
+			'title' => 'Keywords'
+		),
+		'Orders'=> array(
+			'url' =>'Views/Orders',
+			'section' => 'OrdersModel',
+			'title' => 'Orders'
+		),
+		'OrdersItems'=> array(
+			'url' =>'Views/OrdersItems',
+			'section' => 'OrdersItemsModel',
+			'title' => 'OrdersItems'
+		),
+		'PhoneNumbers'=> array(
+			'url' =>'Views/PhoneNumbers',
+			'section' => 'PhoneNumbersModel',
+			'title' => 'PhoneNumbers'
+		),
+		'ProductKeyWords'=> array(
+			'url' =>'Views/ProductKeywords',
+			'section' => 'ProductKeyWordsModel',
+			'title' => 'Product KeyWords'
+		),
+		'Suppliers'=> array(
+			'url' =>'Views/Suppliers',
+			'section' => 'SuppliersModel',
+			'title' => 'Suppliers'
 		)
+		
+		
 	);
 ?>
     
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    	
+	<div class="navbar navbar-default" role="navigation">
+    
     	<div class="container">
 
    			 <div class="navbar-header">
@@ -48,31 +75,17 @@
 			<div class="collapse navbar-collapse nav-c">
 				
 				<ul class="nav navbar-nav">
-				
-					<!-- Get each key and value pair in the $pages array , dynamically generates a list of links-->
-					<? foreach($pages as $name => $data): ?>
-							
-						<li class=" <?=$data['section']?> "> 
-							
-							
-							<a href="<?= "?action=".$name; ?>"> 
-								<?=$data['title'] ?> 
-							</a>
-						</li>
-						
-					<? endforeach; ?>
-					
+									
 					<li class="dropdown">
 		      			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Departments <b class="caret"></b></a>
 		      			  <ul class="dropdown-menu">
 		      			  	
-								<? foreach($model_cat as $name => $data): ?>
+								<? foreach($model_pages as $name => $data): ?>
 									
-									<li class="<?=$data['Name']?>">
+									<li class="<?=$data['section']?>">
 										<!-- Generate a url, removing white space and putting link to lower case-->
-										<a href="<?= str_replace(" ", "-", strtolower( $data['Name'] )) ?>.php" >
 											
-											<?=$data['Name'] ?> 
+											<a href="../../<?=$data['url']?>" > <?=$data['title'] ?> 
 										</a>
 									</li>
 			
@@ -82,21 +95,12 @@
 				</ul>
 				<p class="navbar-text pull-right"> <a href="?action=signin" class="navbar-link">
 
-						<?=$login == null ? "Sign in " : "Signed in as ".$login ?> 
+						Signed in as Anthony Turner
 					</a>
 				</p>
-				
-				<p class="navbar-text pull-right"> <a href="?action=shopping-cart" class="glyphicon glyphicon-shopping-cart"> Cart
-					</a>
-				</p>
+
 			</div>
-			<form class="navbar-search pull-right">
-  				<input type="text" class="search-query" placeholder="Search">
-			</form>
 			
 		</div>
-		
-		
-		
 	</div>
 	<!-- End navbar-->

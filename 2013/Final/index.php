@@ -11,7 +11,7 @@ switch ($action) {
 	default:
 
 		$title	= 'Welcome';		
-		header("Location: Views/FrontEnd/index.php");
+		header("Location: Views/Home/index.php");
 		break;
 }
 
@@ -29,7 +29,6 @@ switch ($format) {
 		break;
 	
 	default:
-		$model_cat=	ProductsCategory::Get();
 		include 'Views/Shared/_Layout.php';		
 		break;
 }

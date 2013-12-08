@@ -18,7 +18,14 @@ class Products {
 		
 	}
 	
-	
+		static public function GetByCategory($Categoryid){
+			
+		
+		
+		return fetch_all("SELECT * FROM Products WHERE `ProductsCategory_id`=$Categoryid");
+				
+	}
+		
 	static public function Delete($id){
 		
 		$conn = GetConnection();
@@ -71,7 +78,7 @@ class Products {
 	
 	static public function Blank(){
 				
-		return array('id' => null, 'Name' => null, 'Price' => null, 'Description' => null , 'Picture_Url' => null,
+		return array('id' => null, 'Name' => null, 'Price' => null, 'Description' => null , 'Picture_Url' => "/~turnera1/2013/Resources/images/placeholder.png",
 			 		 'Suppliers_id' => null, 'ProductsCategory_id' => null);
 		
 	}
