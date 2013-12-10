@@ -2,6 +2,7 @@
 <?php
 	//Controller for the model
 	include_once "../../inc/_global.php";
+	Auth::Secure();
 
 	@$action = $_REQUEST['action'];//Merges together the GET and POST
 	@$format = $_REQUEST['format'];//Merges together the GET and POST

@@ -23,7 +23,16 @@
 <script type="text/html" id="shopping-cart-template">
 	<span class="glyphicon glyphicon-shopping-cart"></span>
 		<a href="?action=showCart&format=json">Cart</a>
-	<span class="badge"> <? $cart = $_SESSION['cart']; echo count($cart); ?></span>
+	<span class="badge"> <? @$cart = $_SESSION['cart']; echo count($cart); ?></span>
+</script>
+
+<script type="text/html" id="login-template">
+	
+	<p class="glyphicon glyphicon-log-in"> 
+			<a href="?action=logout&format=" id="login" class="navbar-link"><? $user=Auth::GetUser(); echo ($name);?></a>
+	</p>
+	
+
 </script>
 
 <? function Scripts(){ ?>
@@ -36,7 +45,8 @@
 	$(function(){
 	
 		$("#shopping-cart").html($("#shopping-cart-template").html());
-	
+		$("#login").html($("#login-template").html());
+
 		var vm = {
 			
 			categories: ko.observableArray(),
@@ -50,6 +60,7 @@
                  })
 			},
 			
+
 			//This is the products
 			products: ko.observableArray(),
 

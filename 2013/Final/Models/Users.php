@@ -41,6 +41,7 @@ class Users {
 	static public function Save($row){
 		
 		$conn = GetConnection();
+		$row['Password'] = self::Encrypt($row['Password']);
 		$row2 = Users::Encode($row, $conn);
 		
 		if($row['id']){
@@ -96,6 +97,7 @@ class Users {
 		$errors = array();//Only one error per field/element
 		if( !$row['FirstName'])$errors['FirstName'] = 'is required'; 		
 		if( !$row['LastName'])$errors['LastName'] = 'is required';
+		if( !$row['Password'])$errors['Password'] = 'is required';
 		if( !is_numeric($row['UserType']))$errors['UserType'] = 'must be a number';
 		if( !$row['UserType'])$errors['UserType'] = 'id required';
 				
@@ -112,6 +114,14 @@ class Users {
 		}
 		
 		return $row2;
+		
+	}
+	
+	static function Encrypt($password){
+		
+		
+		$token = sha1("$salt1$password$salt2");
+		return $token;
 		
 	}
 }

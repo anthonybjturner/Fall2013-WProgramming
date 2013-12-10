@@ -93,14 +93,21 @@
 		        		</ul>
 		      		</li>
 				</ul>
-				<p class="navbar-text pull-right"> <a href="?action=signin" class="navbar-link">
-
-						Signed in as Anthony Turner
-					</a>
+				<? $user=Auth::GetUser(); 
+					if (isset($user['LastName'])) {$var="Signed in as "; $name = $user['LastName'];}
+					else {
+						$var="Sign in";							
+						$name="";
+					}
+				?>
+				
+				<p class="navbar-text pull-right"> <?=$var?> 
+					<a href="#"  class="button-primary"><? $user=Auth::GetUser(); echo ($name);?></a>
 				</p>
 
 			</div>
 			
 		</div>
 	</div>
+	
 	<!-- End navbar-->

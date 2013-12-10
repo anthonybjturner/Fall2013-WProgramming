@@ -5,80 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" />
     <style type="text/css">
-    	
+            body { padding-top: 50px; }
+            header { 
+            	background: #D1D1D1;
+				foreground: #ffffff;            
+            }
+            
     </style>
   </head>
   <body>
 
-    	<div class="container">
-
-		  	 <div class="navbar navbar-default" role="navigation">
-	   			 <div class="navbar-header">
-					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".nav-c">
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="/~turnera1/2013/Final/Views/Home">Amazoff</a>
-					
-				</div>
-				
-			<div class="collapse navbar-collapse nav-c">
-				
-				<ul class="nav navbar-nav">
-
-					<li class="dropdown">
-		      			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Departments <b class="caret"></b></a>
-		      			  <ul class="dropdown-menu">
-		      			  	
-									
-							<li>
-								<a href="#"> Categories</a>
-							</li>
+		
+		<header>
 			
-		        		</ul>
-		      		</li>
-		      		
-
-		      		<li class="dropdown">
-		      			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Wishlist <b class="caret"></b></a>
-		      			  <ul class="dropdown-menu">
-		      			  	
-									
-							<li>
-								<a href="#"> Categories</a>
-							</li>
-			
-		        		</ul>
-		      		</li>
-		      		
-		      		<li class="dropdown">
-		      			  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Manage Account <b class="caret"></b></a>
-		      			  <ul class="dropdown-menu">
-		      			  	
-									
-							<li>
-								<a href="#"> Categories</a>
-							</li>
-			
-		        		</ul>
-		      		</li>
-				</ul>
+			<div class="container">
 				
-				
-				
-				<p class="navbar-text pull-right"> <a href="?action=signin" class="navbar-link">
-
-						Signed in as Anthony 
-					</a>
-				</p>
-				
-				<p class="navbar-text pull-right" id="shopping-cart">
-                      <a href="#" class="navbar-link">Cart</a>
-                 </p>				
+				<h1>My Website</h1>
 			</div>
-		</div>
-	</div>
+			
+		</header>
+		
+
+  	 	<? include '_PublicNav.php'; ?>
 	
 	  	 <!-- The main view area-->
 
