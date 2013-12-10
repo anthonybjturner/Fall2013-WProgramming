@@ -1,6 +1,5 @@
 <?php
 include_once '../../inc/_global.php';
-session_start();
 
 @$action = $_REQUEST['action'];
 @$format = $_REQUEST['format'];
@@ -48,6 +47,13 @@ switch ($action) {
 		$view = 'home.php';
 		break;
 	
+	case 'logout':
+		
+		Auth::LogOut();
+		$view = 'home.php';
+		
+		break;
+	
 	default:
 	
 		if( !isset($_SESSION['cart']) ){
@@ -55,7 +61,7 @@ switch ($action) {
 			$_SESSION['cart'] = array();	
 		}
 		$view 	= 'home.php';
-		$title	= 'Front End';		
+		$title	= 'My Website';		
 		break;
 }
 
