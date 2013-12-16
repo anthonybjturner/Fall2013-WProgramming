@@ -29,6 +29,16 @@ class Addresses {
 		
 	}
 	
+	static public function GetByUserId($id){
+			
+		
+        $sql = "        SELECT id FROM Addresses WHERE Users_id=$id";
+        return fetch_one($sql);  	
+		
+	}
+	
+	
+	
 	 
 	
 	
@@ -57,7 +67,7 @@ class Addresses {
 		
 		if($row['id']){//Update field if the returned value for the id is not null
 			
-			$sql = " UPDATE Addresses "														//change to 2013Fall_Users_id
+			$sql = " UPDATE Addresses "														
 			.		"	Set City='$row2[City]', State='$row2[State]', Zipcode='$row2[Zipcode]', "
 			.		"	Users_id='$row2[Users_id]', AddressType='$row2[AddressType]' "
 			.		"	WHERE id=$row[id]	";

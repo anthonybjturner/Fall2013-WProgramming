@@ -53,6 +53,7 @@ class Auth{
     static public function Secure(){
     	
             if(!self::IsLoggedIn() || !Auth::HasPermission()){
+            	
                header('Location: ' . "/~turnera1/2013/Final/Views/Auth?action=login"); die();
             }		
     }

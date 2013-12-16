@@ -22,14 +22,16 @@
 
 <script type="text/html" id="shopping-cart-template">
 	<span class="glyphicon glyphicon-shopping-cart"></span>
-		<a href="?action=showCart&format=json">Cart</a>
+		<a href="?action=showCart">Cart</a>
 	<span class="badge"> <? @$cart = $_SESSION['cart']; echo count($cart); ?></span>
 </script>
 
 <script type="text/html" id="login-template">
 	
 	<p class="glyphicon glyphicon-log-in"> 
-			<a href="?action=logout&format=" id="login" class="navbar-link"><? $user=Auth::GetUser(); echo ($name);?></a>
+		
+		<a href="?action=register" id="login" class="navbar-link"><? echo ($var.$name); ?></a>
+
 	</p>
 	
 
@@ -60,17 +62,19 @@
                  })
 			},
 			
+			cartClicked: function(){
+				
+				 $.getJSON("?action=showCart", { ProductsCategory_id: this.id } ,function(results){
+                    //Each product is in this model array
+                    var model = results.model;
+                    vm.products(model);
+                 })
+			},
 
 			//This is the products
 			products: ko.observableArray(),
 
-			//cart: ko.observableArray(),
-			cartClicked: function(){
-				          
-				 $.getJSON("?action=goToCart&format=json", { ProductsCategory_id: this.id } ,function(results){
-                  	vm.products(results.model);
-                 })
-			}
+	
 		}
 	
 		ko.applyBindings(vm);

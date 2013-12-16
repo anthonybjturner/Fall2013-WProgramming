@@ -1,10 +1,10 @@
-
 <link href="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/css/jquery.dataTables.min.css" type="text/css" rel="stylesheet" />
 <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.css" type="text/css" rel="stylesheet" />
 <style>
 	.table tr.success2, .table tr.success2 td{
 		background-color: #00FF00 !important; 
 	}
+	
 	#table-wrapper{
 		transition: width .5s;
 		-webkit-transition: width .5s;
@@ -17,13 +17,26 @@
 	}
 	
 	#total-col{
+		font-size: large;
 		background-color: #C0C0C0;
 		float: right;
+	}
+	
+	.container #summary-text{
+		
+		background-color: #00FF00;
 	}
 </style>
 <div class="container">
 	
 	<h2><?=$title?></h2>
+	
+	<p class="col-md-10" id="summary-text">
+		Your order has been submitted.<br>
+		An email will be sent to the address you provided when your order has been confirmed.<br>
+		Thank you.
+	</p>
+	
 	
 	<!-- Triggered when saving -->
 	<? if(isset($_REQUEST['status']) && $_REQUEST['status'] == 'Removed'): ?>
@@ -40,7 +53,6 @@
 					<th>Name</th>
 					<th>Description</th>
 					<th>Price</th>
-					<th>Action</th> 
 				</tr>
 			</thead>
 			<tbody>
@@ -51,18 +63,12 @@
 		</table>
 
 	</div>
-
-	<div id="details" class="col-md-6"></div>
 	
-	
-<div id="summary" class="container">
+	<div id="summary" class="container">
 						
-	<a href="?action=checkOut"  class="btn btn-primary"> Check out</a>
-							
-	<span id="total-col"> Price</span>
+		<span id="total-col"> Price</span>
 
-</div>
-
+	</div>
 </div>
 
 
@@ -71,11 +77,7 @@
 		<td>{{Name}}</td>
 		<td>{{Description}}</td>
 		<td>{{Price}}</td>
-		<td>
-			<a class="glyphicon glyphicon-file" href="?action=details&id={{id}}" ></a>
-			<a class="glyphicon glyphicon-pencil" href="?action=edit&id={{id}}" ></a>
-			<a class="glyphicon glyphicon-trash" href="?action=delete&id={{id}}" ></a>
-		</td>
+	
 </script>
 
 <script id="tbody-template" type="text/x-handlebars-template">
@@ -97,8 +99,6 @@
 			$total+= $item['Price'];
 			
 		}
-		
-  	
   	?>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/datatables/1.9.4/jquery.dataTables.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>

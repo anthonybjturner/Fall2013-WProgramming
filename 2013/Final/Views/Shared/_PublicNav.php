@@ -63,7 +63,7 @@
 		      		
 		      		<li>
 
-						<a class="navbar-link" href="/~turnera1/2013/Final/Views/Users">Admin</a>
+						<a class="navbar-link" href="/~turnera1/2013/Final/Views/Users">Login</a>
 					</li>
 		      		
 				</ul>
@@ -71,17 +71,21 @@
 				
 				
 				<? $user=Auth::GetUser(); 
-					if (isset($user['LastName'])) {$var="Signed in as "; $name = $user['LastName'];}
+					if (isset($user['LastName'])){
+							
+						$var="Signed in as "; 
+						$name = $user['LastName'];
+					}
+					
 					else {
-						$var="Sign in";							
+						$var="Sign in ";							
 						$name="Guest";
 					}
 				?>
-				
-				<p class="navbar-text pull-right"> <?=$var?> 
-					<a href="#" id="login" class="navbar-link"><? $user=Auth::GetUser(); echo ($name);?></a>
-				</p>
 
+				<p class="navbar-text pull-right">  
+					<a href="?action=register" id="login" class="navbar-link"><? echo ($var.$name); ?></a>
+				</p>
 				
 				<p class="navbar-text pull-right" id="shopping-cart">
                       <a href="#" class="navbar-link">Cart</a>

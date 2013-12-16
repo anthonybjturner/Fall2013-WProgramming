@@ -31,6 +31,39 @@ class Users {
 	}
 	
 	
+	static public function DoesExist($row){
+							
+		if($row['FirstName'] == self::GetFirstName($row['FirstName'])&&
+		   $row['LastName'] == self::GetLastName($row['LastName'])){
+			
+			
+			return true;
+		}else
+			return false;
+					
+	}
+	
+	
+	static public function GetFirstName($firstname){
+
+		$sql = "SELECT FirstName From Users WHERE FirstName='$firstname' ";
+		return fetch_one($sql);                        
+	}
+	
+	static public function GetLastName($lastname){
+
+		$sql = "SELECT LastName From Users WHERE FirstName='$lastname' ";
+		return fetch_one($sql);                        
+	}
+	
+	static public function GetId($firstname, $lastname){
+				
+		$sql = "SELECT id From Users WHERE FirstName='$firstname' AND LastName='$lastname'";
+		return fetch_one($sql);
+		
+	}
+	
+	
 	static public function GetSelectListFor($id){
 			
 		
@@ -117,8 +150,9 @@ class Users {
 		
 	}
 	
-	static function Encrypt($password){
-		
+	static public function Encrypt($password){
+		global $salt1;
+		global $salt2;
 		
 		$token = sha1("$salt1$password$salt2");
 		return $token;

@@ -9,15 +9,45 @@ class Orders{
 			
 		if(isset($id)){
 			
-			return fetch_one("SELECT * FROM Orders WHERE id=$id");//Double quotes takes the actual value of $id
+				$sql = "        SELECT Uid.*, U.LastName as User_id_Name
+		                        FROM Orders Uid
+		                        Join Users U ON Uid.`User_id`=U.id
+		                        WHERE Uid.id=$id
+		                                        ";
+		                        $name = fetch_one($sql);
+				$sql = "        SELECT Uid.*, U.FirstName as User_id_Name
+		                        FROM Orders Uid
+		                        Join Users U ON Uid.`User_id`=U.id
+		                        WHERE Uid.id=$id";
+								$last = fetch_one($sql);				
+								
+								return $name.$last;                        
+				
+			
+			//return fetch_one("SELECT * FROM Orders WHERE id=$id");//Double quotes takes the actual value of $id
 		}else{
-			return fetch_all('SELECT * FROM Orders');
-		}
 		
-		return $ret;	
+	            $sql = "        SELECT Uid.*, U.LastName as User_id_Name
+	            FROM Orders Uid
+	            Join Users U ON Uid.`User_id`=U.id
+	            
+	             ";
+	         return fetch_all($sql); 
+	   
+			///	return fetch_all('SELECT * FROM Orders');
+		}
 		
 	}
 	
+	
+		
+	static public function GetByUserId($id){
+			
+		
+        $sql = "        SELECT id FROM Orders WHERE User_id=$id";
+        return fetch_one($sql);  	
+		
+	}
 	
 	static public function Save($row){
 		

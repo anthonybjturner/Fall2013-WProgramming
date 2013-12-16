@@ -24,7 +24,7 @@
 
 			<tr> 
 				<td><?=$rs['Name']?></td>
-				<td><?=$rs['Orders_id']?></td>
+				<td><?=$rs['Orders_Name']?></td>
 				<td><?=$rs['Products_id']?></td>
 
 			<td>

@@ -20,7 +20,7 @@
 		<? foreach ($model as $rs): ?>
 
 			<tr> 
-				<td><?=$rs['User_id']?></td>
+				<td><?=$rs['User_id_Name']?></td>
 				<td><?=$rs['Addresses_id']?></td>
 				
 				<td>

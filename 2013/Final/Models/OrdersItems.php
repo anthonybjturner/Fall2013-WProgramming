@@ -9,13 +9,25 @@ class OrdersItems {
 			
 		if(isset($id)){
 			
-			return fetch_one("SELECT * FROM OrdersItems WHERE id=$id");//Double quotes takes the actual value of $id
+				       
+				$sql = "		select OIt.*, U.LastName as Orders_Name
+								from OrdersItems OIt
+								inner join Orders ord on OIt.Orders_id = ord.id
+								inner join Users U on ord.User_id  = U.id 
+								order by OIt.Orders_id
+								WHERE OIt.id=$id";
+								return fetch_one($sql); 
+
 		}else{
-			return fetch_all('SELECT * FROM OrdersItems');
-		}
 		
-		return $ret;	
-		
+	            $sql = "		select OIt.*, U.LastName as Orders_Name
+								from OrdersItems OIt
+								inner join Orders ord on OIt.Orders_id = ord.id
+								inner join Users U on ord.User_id  = U.id 
+								order by OIt.Orders_id";
+								
+								return fetch_All($sql); 
+		}	
 	}
 	
 	
