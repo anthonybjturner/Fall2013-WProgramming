@@ -14,8 +14,7 @@
     </style>
   </head>
   <body>
-
-		
+	
 		<header>
 			
 			<div class="container">
@@ -27,7 +26,8 @@
 		
 
   	 	<? include '_PublicNav.php'; ?>
-	
+	  	 <? include '../Home/search-bar.php'; ?>
+
 	  	 <!-- The main view area-->
 
 			<? include $view; ?>
@@ -38,9 +38,7 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <!-- <script src="../../Resources/Scripts/main.js"></script> -->	
     
-   <? if(function_exists('Scripts')) 
-    	Scripts(); 
-    ?>
+   <? if(function_exists('Scripts')) Scripts(); ?>
     
  </body>
 </html>

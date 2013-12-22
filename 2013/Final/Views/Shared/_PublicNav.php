@@ -2,6 +2,8 @@
 
     	<div class="container">
 
+
+
 	   			 <div class="navbar-header">
 					<button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".nav-c">
 						<!-- This is for mobile users -->
@@ -83,13 +85,17 @@
 					}
 				?>
 
-				<p class="navbar-text pull-right">  
-					<a href="?action=register" id="login" class="navbar-link"><? echo ($var.$name); ?></a>
-				</p>
-				
-				<p class="navbar-text pull-right" id="shopping-cart">
-                      <a href="#" class="navbar-link">Cart</a>
-                 </p>				
+				<div>
+					
+					<span class="navbar-text pull-right">  
+						<a href="?action=register" id="login" class="navbar-link"><? echo ($var.$name); ?></a>
+					</span>
+					
+					<span class="navbar-text pull-right" id="shopping-cart">
+	                      <a href="#" class="navbar-link">Cart</a>
+	                 </span>
+                 
+                 </div>				
 			</div>
 		</div>
 	</div>

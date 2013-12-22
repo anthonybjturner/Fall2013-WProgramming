@@ -8,6 +8,22 @@ $errors = null;
 
 switch ($action) {
 	
+	
+	case 'terms':
+		
+		$text = $_GET['term'];
+		$model = Products::GetLike($text);
+		$view 	= 'search.php';
+	break;
+	
+	case 'search':
+
+		$model = Products::GetMatches($_POST['data']);
+		$view = 'list-search.php';
+		$title = "search";
+		break;
+	
+	
 	case 'register':
 		
 		$model = Users::Blank();

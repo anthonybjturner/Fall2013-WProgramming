@@ -21,9 +21,9 @@
 		</div>
 	<? endif; ?>
 	
-	<a href="?action=new" id="add-link" >Add Contact</a>
 	
 	<div id="table-wrapper" class="col-md-12">
+		<a href="?action=new" id="add-link" >Add Contact</a>
 		<table class="table table-hover table-bordered table-striped">
 			<thead>
 				<tr>
@@ -39,8 +39,6 @@
 	</div>
 	<div id="details" class="col-md-6"></div>
 </div>
-
-<div id="myModal" class="modal fade"></div>
 
 <script id="row-template" type="text/x-handlebars-template">
 		<td>{{FirstName}}</td>
@@ -68,100 +66,99 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.1.2/handlebars.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 	<script type="text/javascript">
-	$(function(){
-		var curDialogAction = null;
-		var templateRow = Handlebars.compile($("#row-template").html());
-		Handlebars.registerPartial("row-template", templateRow);				
-		var tableTemplate = Handlebars.compile($("#tbody-template").html());
-							
-		$(".table tbody").html(tableTemplate(<?=json_encode($model);?>))	
-		
-		$(".table").dataTable();
-		
-		$(".alert .close").click(function(){
-			$(this).closest(".alert").slideUp();
-		});
-		
-		$("#add-link").click(function(){
+		$(function(){
+			var curDialogAction = null;
+			var templateRow = Handlebars.compile($("#row-template").html());
+			Handlebars.registerPartial("row-template", templateRow);				
+			var tableTemplate = Handlebars.compile($("#tbody-template").html());
+								
+			$(".table tbody").html(tableTemplate(<?=json_encode($model);?>))	
 			
-			curDialogAction = "add";
-			ShowDialog(this.href); 
-			return false;
-		});
-		
-		$(".table a").click(function(){
+			$(".table").dataTable();
 			
-			if($(this).closest("tr").hasClass("success2")){
-				HideDialog();
-			}else{
-				curDialogAction = "update";
-				ShowDialog(this.href, $(this).closest("tr"))
-			}
+			$(".alert .close").click(function(){
+				$(this).closest(".alert").slideUp();
+			});
 			
-			return false;
-		});
-		
-		var HandleSubmit = function (){
-			
-			var data = $(this).serializeArray();
-			data.push({name:'format', value:'json'});		
-
-			//Temp code to be removed later
-			if(curDialogAction == "add"){
-
-				toastr.success("Adding", "Success");
-				curDialogAction = null;
-				header("Location: ?status=Saved&id=$_REQUEST[id]");
-				die();		
-
-			}
-			
-			$.post(this.action, data, function(results){
+			$("#add-link").click(function(){
 				
-				if(results.errors){
-					
-					toastr.error(results.errors, "Error");	
-		
+				curDialogAction = "add";
+				ShowDialog(this.href); 
+				return false;
+			});
+			
+			$(".table a").click(function(){
+				
+				if($(this).closest("tr").hasClass("success2")){
+					HideDialog();
 				}else{
+					curDialogAction = "update";
+					ShowDialog(this.href, $(this).closest("tr"))
+				}
+				
+				return false;
+			});
+			
+			var HandleSubmit = function (){
+				
+				var data = $(this).serializeArray();
+				data.push({name:'format', value:'json'});		
+	
+				//Temp code to be removed later
+				if(curDialogAction == "add"){
+	
+					toastr.success("Adding", "Success");
+					curDialogAction = null;
+					header("Location: ?status=Saved&id=$_REQUEST[id]");
+					die();		
+	
+				}
+				
+				$.post(this.action, data, function(results){
 					
-					toastr.success("Submitting", "Success");
-
-					if(curDialogAction == "add"){
-
-						toastr.success("Adding", "Success");
+					if(results.errors){
 						
+						toastr.error(results.errors, "Error");	
+			
 					}else{
-						$(".success2").html(templateRow(results.model));					
-						toastr.success("Your record has been saved!", "Success");
+						
+						toastr.success("Submitting", "Success");
+	
+						if(curDialogAction == "add"){
+	
+							toastr.success("Adding", "Success");
+							
+						}else{
+							$(".success2").html(templateRow(results.model));					
+							toastr.success("Your record has been saved!", "Success");
+						}
 					}
-				}
-				
-			}, 'json');
-			return false;
-		}
-		
-		var ShowDialog = function(url, /*optional*/selectedRow){
-				
-				$(".success2").removeClass("success2");
-				if(selectedRow){
-					selectedRow.addClass("success2");
-					toastr.success("SelectedRow", "Success");
-				}
-				
-				//Shrink the table
-				$("#table-wrapper").removeClass("col-md-12").addClass("col-md-6");
-				
-				$("#details").load(url, {format: "plain"}, function(){
-					$("#details form").submit(HandleSubmit);					
-				});							
-		}
-		
-		var HideDialog = function(){
-				$(".success2").removeClass("success2");
-				$("#table-wrapper").removeClass("col-md-6").addClass("col-md-12");
-				$("#details").html('');						
-		}
-	})
+					
+				}, 'json');
+				return false;
+			}
+			
+			var ShowDialog = function(url, /*optional*/selectedRow){
+					
+					$(".success2").removeClass("success2");
+					if(selectedRow){
+						selectedRow.addClass("success2");
+					}
+					
+					//Shrink the table
+					$("#table-wrapper").removeClass("col-md-12").addClass("col-md-6");
+					
+					$("#details").load(url, {format: "plain"}, function(){
+						$("#details form").submit(HandleSubmit);					
+					});							
+			}
+			
+			var HideDialog = function(){
+					$(".success2").removeClass("success2");
+					$("#table-wrapper").removeClass("col-md-6").addClass("col-md-12");
+					$("#details").html('');						
+			}
+		})
 	</script>
 <? } ?>
 

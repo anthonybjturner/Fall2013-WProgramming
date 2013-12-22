@@ -23,7 +23,7 @@
 </style>
 <div class="container">
 	
-	<h2><?=$title?></h2>
+	
 	
 	<!-- Triggered when saving -->
 	<? if(isset($_REQUEST['status']) && $_REQUEST['status'] == 'Removed'): ?>

@@ -18,6 +18,33 @@ class Products {
 		
 	}
 	
+	static public function GetLike($term=null){
+			
+		if(isset($term)){
+			
+			return fetch_special("SELECT * FROM Products WHERE Name LIKE '%$term%'");//Double quotes takes the actual value of $id
+		}else{
+			return fetch_all('SELECT * FROM Products');
+		}
+		
+		return $ret;	
+		
+	}
+	
+	static public function GetMatches($term=null){
+			
+		if(isset($term)){
+			
+			return fetch_all("SELECT * FROM Products WHERE Name LIKE '%$term%'");//Double quotes takes the actual value of $id
+		}else{
+			return fetch_all('SELECT * FROM Products');
+		}
+		
+		return $ret;	
+		
+	}
+	
+
 		static public function GetByCategory($Categoryid){
 			
 		

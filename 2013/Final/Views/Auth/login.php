@@ -34,11 +34,6 @@
 		</div>
 	</form>
 </div>
-<script type="text/javascript">
-	$(function(){
-		$("#UserType").val(<?=$model['UserType']?>);
-	})	
-</script>
 
 
 

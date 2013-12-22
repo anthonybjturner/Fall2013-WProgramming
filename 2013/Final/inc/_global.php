@@ -62,3 +62,14 @@ function fetch_one_as_string($sql){
 }
 
 
+function fetch_special($sql){
+		
+	$ret = array();
+	$conn = GetConnection();
+	$result = $conn->query($sql);//Send a query with the given $sql statement/arguments
+	echo $conn->error;
+	
+	$conn->close();
+	return $result;
+		
+}
